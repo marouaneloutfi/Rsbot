@@ -5,9 +5,10 @@ from keras.layers import MaxPooling3D
 from keras.layers import concatenate
 
 
-class Unet:
+class Unet3D:
     """
-        A Unet inspired architecture based on the referenced paper
+        A Unet inspired architecture based on the reference
+        d paper
         - https://arxiv.org/abs/1505.04597 - U-Net: Convolutional Networks for Biomedical Image Segmentation
 
     """
