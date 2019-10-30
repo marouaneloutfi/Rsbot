@@ -11,9 +11,9 @@ class Gee:
     tiles = 'https://earthengine.googleapis.com/map/{mapid}/{{z}}/{{x}}/{{y}}?token={token}'
 
     @staticmethod
-    def get_instance():
+    def get_instance(ipython=False):
         if Gee.__instance is None:
-            Gee()
+            Gee(ipython)
         return Gee.__instance
 
     def __new__(cls, *args, **kwargs):
@@ -22,8 +22,6 @@ class Gee:
         return cls.__instance
 
     def __init__(self, ipython=False):
-        if self.__instance is not None:
-            raise Exception("Multiple Gee instances detected. Please use Gee.get_instance() instead.")
         if ipython:
             ee.Authenticate()
         ee.Initialize()
