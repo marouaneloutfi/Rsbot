@@ -18,9 +18,9 @@ def split_rectangle(rect, x_density, y_density, geometry='polygon'):
     y = np.arange(min_y, max_y, y_density)
     if geometry == 'polygon':
         return [ee.Geometry.Polygon([[[_x, _y + y_density],
-                                    [_x, _y],
-                                    [_x + x_density, _y],
-                                    [_x + x_density, _y + y_density]]]) for _x in x for _y in y]
+                                      [_x, _y],
+                                      [_x + x_density, _y],
+                                      [_x + x_density, _y + y_density]]]) for _x in x for _y in y]
     elif geometry == 'point':
         points = []
         for _x in x:
@@ -32,3 +32,48 @@ def split_rectangle(rect, x_density, y_density, geometry='polygon'):
         return points
     else:
         raise ValueError("geometry type not supported yet")
+
+
+def join_collection(image, mask):
+    join = ee.Join.inner()
+    time_filter = ee.Filter.equals(leftField='system:time_start',
+                                   rightField='system:time_start')
+    return join.apply(image, mask, time_filter)
+
+
+def ee_concatenate(feature):
+    return ee.Image.cat(feature.get('primary'), feature.get('secondary'))
+
+
+def temp_divide(bands, month):
+    return [band+'-'+str(month) for band in bands]
+
+
+def temp_concatenate(self, satellite, labels, year, kernel_size=256,  sr=True):
+
+    img_c = satellite.collection.sort('system:time_start')
+    img_m = img_c.filterDate(self.year + '-03-01', self.year + '-03-30')
+
+    if sr:
+        img_m = satellite.filter_clouds(img_m)
+
+    img_m = img_m.select(satellite.bands, temp_divide(satellite.bands, 3)).median()
+    for month in range(3, 11):
+        if month >= 10:
+            datefilter = ee.Filter.date(year + '-' + str(month) + '-01',
+                                        year + '-' + str(month) + '-30')
+        else:
+            datefilter = ee.Filter.date(year + '-0' + str(month) + '-01',
+                                        year + '-0' + str(month) + '-30')
+        current_img = img_c.filter(datefilter)
+        if sr:
+            img_m = satellite.filter_clouds(img_m)
+
+        current_img = current_img.select(satellite.bands, temp_divide(satellite.bands, month)).median()
+        img_m = ee.Image.cat([img_m, current_img])
+
+    feature_stack = ee.Image.cat([img_m, labels]).float()
+    _list = ee.List.repeat(1, kernel_size)
+    lists = ee.List.repeat(_list, kernel_size)
+    kernel = ee.Kernel.fixed(kernel_size, kernel_size, lists)
+    return feature_stack.neighborhoodToArray(kernel)
