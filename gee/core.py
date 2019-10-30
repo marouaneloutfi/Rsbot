@@ -77,7 +77,3 @@ class Landsat8(Satellite):
 
     def filter_clouds(self, collection):
         return collection.map(self.mask_l8sr)
-
-
-# Initialise the Google earth engine connection
-init_gee()
