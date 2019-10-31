@@ -16,7 +16,8 @@ def create_task(samples, selectors, description, folder):
         description=description,
         folder=folder,
         fileFormat='TFRecord',
-        selectors=selectors)
+        # selectors=selectors
+    )
 
 
 class Dataset:
@@ -25,7 +26,7 @@ class Dataset:
         self.batches = []
         self.current_batch = None
         self.data = image
-        self.geom = split_rectangle(bbox, density[0], density[1])
+        self.geom = split_rectangle(ee.Geometry.Polygon(bbox), density[0], density[1])
         self.length = len(self.geom)
         self.exp_size = export_size
         self.counter = 0

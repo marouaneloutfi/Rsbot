@@ -18,7 +18,9 @@ CULTIVATED = {
 
 
 def check_labels(labels):
-    assert [True for label in labels if label not in LABELS.keys()] is None
+    unknown = [label for label in labels if label not in LABELS.keys()]
+    if unknown:
+        raise ValueError(' '.join(unknown) + ' : unknown crop types')
 
 
 class Crops:
@@ -29,7 +31,9 @@ class Crops:
     uri = 'USDA/NASS/CDL'
 
     def __init__(self, year):
-        self.collection = ee.ImageCollection(self.uri).filterDate(year+'-03-01', year+'-10-30')
+        year = str(year)
+        self.collection = ee.ImageCollection(self.uri).filterDate(year+'-01-01', year+'-12-31')
+        print(self.collection.first().getInfo())
 
     @staticmethod
     def apply_palette(image):
@@ -42,8 +46,9 @@ class Crops:
         check_labels(labels)
         confidence = self.collection.select('confidence').first()
         cultivated = self.collection.select('cultivated').first()
-        crop_mask = [self.collection.select(['cropland'], [label]).first().eq(LABELS[label]).where(confidence.lt(thresh), 0).
-             where(cultivated.eq(CULTIVATED[label]), 0) for label in labels]
+        print(cultivated.getInfo())
+        crop_mask = [self.collection.select(['cropland'], [label]).first().eq(LABELS[label]).where(confidence.lt(thresh), 0).where(cultivated.eq(CULTIVATED[label]), 0) for label in labels]
+        [print(crop.getInfo()) for crop in crop_mask]
         return ee.Image.cat(crop_mask)
 
 

@@ -49,10 +49,10 @@ def temp_divide(bands, month):
     return [band+'-'+str(month) for band in bands]
 
 
-def temp_concatenate(self, satellite, labels, year, kernel_size=256,  sr=True):
-
+def temp_concatenate(satellite, labels, year, kernel_size=256,  sr=True):
+    year = str(year)
     img_c = satellite.collection.sort('system:time_start')
-    img_m = img_c.filterDate(self.year + '-03-01', self.year + '-03-30')
+    img_m = img_c.filterDate(year + '-03-01', year + '-03-30')
 
     if sr:
         img_m = satellite.filter_clouds(img_m)
@@ -67,7 +67,7 @@ def temp_concatenate(self, satellite, labels, year, kernel_size=256,  sr=True):
                                         year + '-0' + str(month) + '-30')
         current_img = img_c.filter(datefilter)
         if sr:
-            img_m = satellite.filter_clouds(img_m)
+            current_img = satellite.filter_clouds(current_img)
 
         current_img = current_img.select(satellite.bands, temp_divide(satellite.bands, month)).median()
         img_m = ee.Image.cat([img_m, current_img])
