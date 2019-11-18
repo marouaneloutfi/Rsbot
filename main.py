@@ -1,4 +1,12 @@
-from gee.core import Gee, Landsat8
-from gee.crops import Crops
-from gee.utils import split_rectangle, temp_concatenate
-from gee.dataset import Dataset
+from models.unet_3d import Unet3D
+
+
+
+
+input_shape = (128, 128, 8, 8)
+unet_3d = Unet3D(input_shape, n_base_filters=32, num_classes=5, dropout=0.25,
+               depth=3)
+
+model = unet_3d.get_model()
+
+print(model.summary())
