@@ -44,7 +44,8 @@ class Unet3D:
             deconv_block = self.create_deconv3d_block(current_layer, conv_block, n_filters, (3, 3, 3), name="deconvBlock"+str(i))
             deconv_block = Dropout(self.dropout)(deconv_block)
             current_layer = self.create_conv3d_block(deconv_block, n_filters=n_filters, kernel_shape=(3, 3, 3), name="convBlock1"+str(i))
-        r = Reshape((self.input_shape[0], self.input_shape[1], 16))(current_layer)
+        p = MaxPooling3D((1, 1, 8), name='max_block_8')(current_layer)
+        r = Reshape((self.input_shape[0], self.input_shape[1], 16))(p)
         outputs = Conv2D(self.num_classes, (1, 1), activation=final_activation, name="output")(r)
 
         return Model(inputs, outputs)
