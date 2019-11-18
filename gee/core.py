@@ -21,8 +21,8 @@ class Gee:
             cls.__instance = object.__new__(Gee)
         return cls.__instance
 
-    def __init__(self, ipython=False):
-        if ipython:
+    def __init__(self, oauth=False):
+        if oauth:
             ee.Authenticate()
         ee.Initialize()
 

@@ -49,6 +49,13 @@ def temp_divide(bands, month):
     return [band+'-'+str(month) for band in bands]
 
 
+def get_selectors(bands):
+    selectors = []
+    for month in range(3, 11):
+        selectors += temp_divide(bands, month)
+    return selectors
+
+
 def temp_concatenate(satellite, labels, year, kernel_size=256,  sr=True):
     year = str(year)
     img_c = satellite.collection.sort('system:time_start')
