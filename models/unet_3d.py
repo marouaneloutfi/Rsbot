@@ -29,13 +29,14 @@ class Unet3D:
 
         # Encoder block
         for i in range(self.depth - 1):
+            print("layer",i)
             n_filters = self.n_base_filters*(2**(i+1))
             conv_block = self.create_conv3d_block(current_layer, n_filters=n_filters, kernel_shape=(3, 3, 3))
             pool_layer = MaxPooling3D(self.pool_shape, name="max_pool_"+str(i))(conv_block)
             current_layer = Dropout(self.dropout*0.5)(pool_layer)
             conv_blocks.append(conv_block)
 
-        n_filters = self.n_base_filters(2**(self.depth+1))
+        n_filters = self.n_base_filters*(2**(self.depth+1))
         current_layer = self.create_conv3d_block(current_layer, n_filters=n_filters, kernel_shape=(3, 3, 3))
 
         # Decoder block
@@ -45,7 +46,7 @@ class Unet3D:
             deconv_block = Dropout(self.dropout)(deconv_block)
             current_layer = self.create_conv3d_block(deconv_block, n_filters=n_filters, kernel_shape=(3, 3, 3))
 
-        r = Reshape((512, 512, 16))(current_layer)
+        r = Reshape((self.input_shape[0], self.input_shape[1], self.n_base_filters))(current_layer)
         outputs = Conv2D(5, (1, 1), activation='softmax', name="output")(r)
 
         return Model(inputs, outputs)
@@ -55,17 +56,17 @@ class Unet3D:
         layer = Conv3D(filters=n_filters, kernel_size=kernel_shape, kernel_initializer="he_normal",
                        padding="same", name=name)(input_tensor)
         if self.batchnorm:
-            layer = BatchNormalization(layer)
+            layer = BatchNormalization()(layer)
         layer = Activation(activation)(layer)
 
         # second layer of the convolutional block
         layer = Conv3D(filters=n_filters, kernel_size=kernel_shape, kernel_initializer="he_normal",
                        padding="same", name=name)(layer)
         if self.batchnorm:
-            layer = BatchNormalization(layer)
+            layer = BatchNormalization()(layer)
         return Activation(activation)(layer)
 
     @staticmethod
     def create_deconv3d_block(input_tensor, conv_block, n_filters, kernel_shape, strides=(2, 2, 2)):
         up_layer = Conv3DTranspose(n_filters, kernel_size=kernel_shape, strides=strides, padding='same')(input_tensor)
-        return concatenate(up_layer, conv_block)
+        return concatenate([up_layer, conv_block])
