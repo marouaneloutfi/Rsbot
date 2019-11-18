@@ -55,14 +55,14 @@ class Unet3D:
         layer = Conv3D(filters=n_filters, kernel_size=kernel_shape, kernel_initializer="he_normal",
                        padding="same", name=name)(input_tensor)
         if self.batchnorm:
-            layer = BatchNormalization(layer)
+            layer = BatchNormalization()(layer)
         layer = Activation(activation)(layer)
 
         # second layer of the convolutional block
         layer = Conv3D(filters=n_filters, kernel_size=kernel_shape, kernel_initializer="he_normal",
                        padding="same", name=name)(layer)
         if self.batchnorm:
-            layer = BatchNormalization(layer)
+            layer = BatchNormalization()(layer)
         return Activation(activation)(layer)
 
     @staticmethod
