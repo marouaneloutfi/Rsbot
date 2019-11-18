@@ -68,4 +68,4 @@ class Unet3D:
     @staticmethod
     def create_deconv3d_block(input_tensor, conv_block, n_filters, kernel_shape, strides=(2, 2, 2)):
         up_layer = Conv3DTranspose(n_filters, kernel_size=kernel_shape, strides=strides, padding='same')(input_tensor)
-        return concatenate(up_layer, conv_block)
+        return concatenate([up_layer, conv_block])
