@@ -29,6 +29,7 @@ class Unet3D:
 
         # Encoder block
         for i in range(self.depth - 1):
+            print("layer",i)
             n_filters = self.n_base_filters*(2**(i+1))
             conv_block = self.create_conv3d_block(current_layer, n_filters=n_filters, kernel_shape=(3, 3, 3))
             pool_layer = MaxPooling3D(self.pool_shape, name="max_pool_"+str(i))(conv_block)
