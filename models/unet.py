@@ -27,7 +27,7 @@ class Unet:
         conv_blocks = []
 
         # Encoder block
-        for i in range(self.depth - 1):
+        for i in range(self.depth):
             n_filters = self.n_base_filters*(2**(i+1))
             conv_block = self.create_conv2d_block(current_layer, n_filters=n_filters, kernel_shape=(3, 3))
             pool_layer = MaxPooling2D(self.pool_shape, name="max_pool_"+str(i))(conv_block)
