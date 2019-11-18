@@ -1,5 +1,5 @@
 import ee
-from gee.utils import split_rectangle
+from .utils import split_rectangle
 
 
 def create_task(samples, selectors, description, folder):
