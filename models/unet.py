@@ -34,7 +34,7 @@ class Unet:
             current_layer = Dropout(self.dropout*0.5)(pool_layer)
             conv_blocks.append(conv_block)
 
-        n_filters = self.n_base_filters(2**(self.depth+1))
+        n_filters = self.n_base_filters*(2**(self.depth+1))
         current_layer = self.create_conv2d_block(current_layer, n_filters=n_filters, kernel_shape=(3, 3))
 
         # Decoder block
@@ -53,14 +53,14 @@ class Unet:
         layer = Conv2D(filters=n_filters, kernel_size=kernel_shape, kernel_initializer="he_normal",
                        padding="same", name=name)(input_tensor)
         if self.batchnorm:
-            layer = BatchNormalization(layer)
+            layer = BatchNormalization()(layer)
         layer = Activation(activation)(layer)
 
         # second layer of the convolutional block
         layer = Conv2D(filters=n_filters, kernel_size=kernel_shape, kernel_initializer="he_normal",
                        padding="same", name=name)(layer)
         if self.batchnorm:
-            layer = BatchNormalization(layer)
+            layer = BatchNormalization()(layer)
         return Activation(activation)(layer)
 
     @staticmethod
