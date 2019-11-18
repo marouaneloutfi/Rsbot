@@ -45,7 +45,7 @@ class Unet3D:
             deconv_block = Dropout(self.dropout)(deconv_block)
             current_layer = self.create_conv3d_block(deconv_block, n_filters=n_filters, kernel_shape=(3, 3, 3))
 
-        r = Reshape((512, 512, 16))(current_layer)
+        r = Reshape((self.input_shape[0], self.input_shape[1], self.n_base_filters))(current_layer)
         outputs = Conv2D(5, (1, 1), activation='softmax', name="output")(r)
 
         return Model(inputs, outputs)
