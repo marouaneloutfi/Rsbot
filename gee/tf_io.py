@@ -16,9 +16,9 @@ class TfDatasetParser:
         self.feature_dic = dict(zip(self.features, columns))
 
     def get_dataset(self, tf_dir,kernel_size, shuffle=True):
-        """Get the preprocessed training dataset
+        """Get the preprocessed dataset
       Returns:
-        A tf.data.Dataset of training data.
+        A tf.data.Dataset of the shards in the folder specified
       """
         dataset = self.parse_dataset(tf_dir)
         if shuffle:
@@ -28,7 +28,7 @@ class TfDatasetParser:
         return dataset
 
     def parse_dataset(self, pattern):
-        glob = tf.io.gfile.glob(pattern)
+        glob = tf.gfile.Glob(pattern)
         dataset = tf.data.TFRecordDataset(glob, compression_type='GZIP')
         dataset = dataset.map(self.parse_tfrecord, num_parallel_calls=5)
         dataset = dataset.map(self.to_tuple, num_parallel_calls=5)
@@ -59,6 +59,8 @@ class TfDatasetParser:
             return [tempo_slices[:, :, i:i + 8] for i in range(0, len(get_selectors(self._bands)), 8)]
 
 
+
+#####  functions to be refactored
 def hex_to_rgb(hex_str):
     hex_str = hex_str.strip()
 

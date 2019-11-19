@@ -56,7 +56,7 @@ def get_selectors(bands):
     return selectors
 
 
-def temp_concatenate(satellit, year, kernel_size=256,  sr=True):
+def temp_concatenate(satellite, labels, year, kernel_size=256,  sr=True):
     year = str(year)
     img_c = satellite.collection.sort('system:time_start')
     img_m = img_c.filterDate(year + '-03-01', year + '-03-30')
