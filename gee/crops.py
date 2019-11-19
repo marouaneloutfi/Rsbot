@@ -61,7 +61,7 @@ class Crops:
         for mask in crop_mask:
             bg = bg.neq(mask)
         final_mask = crop_mask + g_mask + [bg.select(['constant'],['background'])]
-        [print(crop.getInfo()) for crop in crop_mask]
+        [print(crop.getInfo()) for crop in final_mask]
         return ee.Image.cat(final_mask)
 
 
