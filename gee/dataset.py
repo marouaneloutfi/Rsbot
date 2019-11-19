@@ -65,3 +65,7 @@ class Dataset:
         self.current_batch.start()
         self.batches.append(self.current_batch)
         return self.current_batch
+
+
+def get_sample(point):
+    point = ee.Geometry.Point()

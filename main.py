@@ -8,7 +8,7 @@ from gee.dataset import Dataset
 from models.unet_3d import Unet3D
 from gee.tf_io import TfDatasetParser, binary_mask, binary_mask_original
 from matplotlib import pyplot as plt
-gee = Gee.get_instance(auth=False)
+gee = Gee.get_instance(ipython=False)
 
 
 def show_image(image):
@@ -67,7 +67,7 @@ print(model.summary())
 
 model.load_weights('/home/marouane/Downloads/crops_512_8_8_5_focal_softmax_allOneGo.h5')
 
-shard = '/home/marouane/testing/*.tfrecord.gz'
+shard = '/home/marouane/Downloads/train_shard_68.tfrecord.gz'
 tf_parser = TfDatasetParser(128, labels)
 dataset = tf_parser.get_dataset(shard, 128, shuffle=False)
 

@@ -2,6 +2,7 @@ import tensorflow as tf
 import numpy as np
 from .utils import get_selectors
 
+tf.enable_eager_execution()
 
 def get_columns(features, kernel_shape):
     return [tf.io.FixedLenFeature(shape=kernel_shape, dtype=tf.float32) for k in features]
@@ -28,7 +29,7 @@ class TfDatasetParser:
         return dataset
 
     def parse_dataset(self, pattern):
-        glob = tf.gfile.Glob(pattern)
+        glob = tf.io.gfile.glob(pattern)
         dataset = tf.data.TFRecordDataset(glob, compression_type='GZIP')
         dataset = dataset.map(self.parse_tfrecord, num_parallel_calls=5)
         dataset = dataset.map(self.to_tuple, num_parallel_calls=5)
