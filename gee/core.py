@@ -11,7 +11,7 @@ class Gee:
     tiles = 'https://earthengine.googleapis.com/map/{mapid}/{{z}}/{{x}}/{{y}}?token={token}'
 
     @staticmethod
-    def get_instance(auth=False):
+    def get_instance(auth=True):
         if Gee.__instance is None:
             Gee(auth)
         return Gee.__instance
@@ -21,7 +21,7 @@ class Gee:
             cls.__instance = object.__new__(Gee)
         return cls.__instance
 
-    def __init__(self, auth=False):
+    def __init__(self, auth):
         if auth:
             ee.Authenticate()
         ee.Initialize()
