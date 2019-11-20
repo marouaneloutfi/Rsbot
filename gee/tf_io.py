@@ -1,7 +1,7 @@
 import tensorflow as tf
 import numpy as np
 from .utils import get_selectors
-from PIL import  Image
+from PIL import Image
 
 
 
@@ -17,14 +17,14 @@ class TfDatasetParser:
         columns = get_columns(self.features, [kernel_size, kernel_size])
         self.feature_dic = dict(zip(self.features, columns))
 
-    def get_dataset(self, tf_dir, kernel_size, shuffle=True):
+    def get_dataset(self, tf_dir, kernel_size, n_samples, batch_size, shuffle=True):
         """Get the preprocessed dataset
       Returns:
         A tf.data.Dataset of the shards in the folder specified
       """
         dataset = self.parse_dataset(tf_dir)
         if shuffle:
-            dataset = dataset.shuffle(kernel_size).batch(kernel_size).repeat()
+            dataset = dataset.shuffle(n_samples).batch(batch_size).repeat()
         else:
             dataset = dataset.batch(1).repeat()
         return dataset
