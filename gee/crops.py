@@ -1,19 +1,36 @@
 import ee
 
 LABELS = {
-    'corn': 1,
-    'soybeans': 5,
-    'alfalfa': 36,
-    'wheat':  22,
+    'Corn': 1,
+    'Soybeans': 5,
+    'Durum Wheat': 22,
+    'Spring Wheat': 23,
+    'Winter Wheat': 24,
+    'Other Small Grains': 25,
+    'Alfalfa': 36,
+    'Potatoes': 43,
+    'Sweet Potatoes': 46,
     'forrest': 63,
+    'Deciduous Forest': 141,
+    'Evergreen Forest': 142,
+    'Mixed Forest': 143
+
 }
 
 CULTIVATED = {
-    'corn': 1,
-    'soybeans': 1,
-    'alfalfa': 1,
-    'wheat':  1,
+    'Corn': 1,
+    'Soybeans': 1,
+    'Durum Wheat': 1,
+    'Spring Wheat': 1,
+    'Winter Wheat': 1,
+    'Other Small Grains': 1,
+    'Alfalfa': 1,
+    'Potatoes': 1,
+    'Sweet Potatoes': 1,
     'forrest': 2,
+    'Deciduous Forest': 2,
+    'Evergreen Forest': 2,
+    'Mixed Forest': 2
 }
 
 
@@ -45,7 +62,6 @@ class Crops:
     def group_labels(self,labels,new_label, tresh):
         check_labels(labels)
         confidence = self.collection.select('confidence').first()
-        cultivated = self.collection.select('cultivated').first()
         cropland = self.collection.select('cropland',[new_label]).first()
         crop_mask = cropland.eq(LABELS[labels[0]])
         for label in labels[1:]:
@@ -56,7 +72,6 @@ class Crops:
         check_labels(labels)
         confidence = self.collection.select('confidence').first()
         cultivated = self.collection.select('cultivated').first()
-        cropland = self.collection.select('cropland').first()
         crop_mask = [self.collection.select(['cropland'], [label]).first().eq(LABELS[label]).where(confidence.lt(thresh), 0).where(cultivated.eq(CULTIVATED[label]), 0) for label in labels]
         bg = ee.Image(1)
         for mask in crop_mask:
