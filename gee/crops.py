@@ -21,8 +21,12 @@ LABELS = {
 }
 
 CULTIVATED = {
+
     'Corn': 1,
+    'Cotton': 1,
+    'Rice': 1,
     'Soybeans': 1,
+    'Sunflower': 1,
     'Durum Wheat': 1,
     'Spring Wheat': 1,
     'Winter Wheat': 1,
@@ -30,6 +34,7 @@ CULTIVATED = {
     'Alfalfa': 1,
     'Potatoes': 1,
     'Sweet Potatoes': 1,
+    'Dbl Crop Lettuce/Cotton': 1,
     'forrest': 2,
     'Deciduous Forest': 2,
     'Evergreen Forest': 2,
