@@ -42,27 +42,32 @@ class Crops:
     def palette(self):
         return self.collection.map(Crops.apply_palette)
 
-    def filter_labels(self, labels, thresh):
+    def group_labels(self,labels,new_label, tresh):
+        check_labels(labels)
+        confidence = self.collection.select('confidence').first()
+        cultivated = self.collection.select('cultivated').first()
+        cropland = self.collection.select('cropland',[new_label]).first()
+        crop_mask = cropland.eq(LABELS[labels[0]])
+        for label in labels[1:]:
+            crop_mask = crop_mask.add(cropland.eq(LABELS[label]))
+        return crop_mask.where(confidence.lt(tresh), 0)
+
+    def concatenate_labels(self, labels, thresh):
         check_labels(labels)
         confidence = self.collection.select('confidence').first()
         cultivated = self.collection.select('cultivated').first()
         cropland = self.collection.select('cropland').first()
-        g_mask = []
-        if 'wheat' in labels:
-            g_mask.append(self.collection.select(['cropland'], ['wheat']).first().eq(22).add(cropland.eq(23)).add(cropland.eq(24)).where(confidence.lt(50), 0).where(cultivated.eq(1), 0))
-            labels.remove('wheat')
-
-        if 'forrest' in labels:
-            g_mask.append(self.collection.select(['cropland'], ['forrest']).first().eq(63).add(cropland.eq(141)).add(cropland.eq(142)).add(cropland.eq(143)).where(confidence.lt(50), 0).where(cultivated.eq(2), 0))
-            labels.remove('forrest')
-
         crop_mask = [self.collection.select(['cropland'], [label]).first().eq(LABELS[label]).where(confidence.lt(thresh), 0).where(cultivated.eq(CULTIVATED[label]), 0) for label in labels]
-        bg =  ee.Image(1)
+        bg = ee.Image(1)
         for mask in crop_mask:
             bg = bg.neq(mask)
-        final_mask = crop_mask + g_mask + [bg.select(['constant'],['background'])]
+        final_mask = crop_mask + [bg.select(['constant'], ['background'])]
         [print(crop.getInfo()) for crop in final_mask]
         return ee.Image.cat(final_mask)
+
+    def conactenate_image(self, images):
+        return ee.Image.cat(images)
+
 
 
 
