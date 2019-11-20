@@ -92,8 +92,7 @@ class Crops:
         bg = ee.Image(1)
         bands = image.bandNames()
         for i in range(bands.size().getInfo()):
-            print(bands.get(i).getInfo())
-            bg = bg.neq(image.select(bands.get(i)))
+            bg = bg.neq(image.select(bands.get(i).getInfo()))
         image = ee.Image.cat(images + [bg.select(['constant'], ['background'])])
         print(image.getInfo())
         return image
