@@ -71,7 +71,7 @@ class Crops:
             crop_mask = crop_mask.add(cropland.eq(LABELS[label]))
         crop_mask = crop_mask.where(confidence.lt(tresh), 0)
         bg = ee.Image(1).neq(crop_mask)
-        return ee.Image.cat(crop_mask + [bg.select(['constant'], ['background'])])
+        return ee.Image.cat([crop_mask, bg.select(['constant'], ['background'])])
 
     def concatenate_labels(self, labels, thresh):
         check_labels(labels)
@@ -82,8 +82,9 @@ class Crops:
         for mask in crop_mask:
             bg = bg.neq(mask)
         final_mask = crop_mask + [bg.select(['constant'], ['background'])]
-        [print(crop.getInfo()) for crop in final_mask]
         return ee.Image.cat(final_mask)
 
     def conactenate_image(self, images):
-        return ee.Image.cat(images)
+        image = ee.Image.cat(images)
+        print(image.getInfo())
+        return image
