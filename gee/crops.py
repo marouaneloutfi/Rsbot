@@ -88,9 +88,11 @@ class Crops:
         return ee.Image.cat(final_mask)
 
     def conactenate_image(self, images):
+        image = ee.Image.cat(images)
         bg = ee.Image(1)
-        for image in images:
-            bg = bg.neq(image)
-        image = ee.Image.cat(images+[bg.select(['constant'], ['background'])])
+        bands = image.bandNames()
+        for i in range(bands.size().getInfo()):
+            bg = bg.neq(image.select(bands.get(i)))
+        image = ee.Image.cat(images + [bg.select(['constant'], ['background'])])
         print(image.getInfo())
         return image
