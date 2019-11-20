@@ -58,7 +58,7 @@ class Dataset:
                 seed=42,
                 # dropNulls = True
             )
-            self.size += sample.size().getInfo()
+            print(sample.getInfo())
             geom_sample = geom_sample.merge(sample)
         return geom_sample
 
