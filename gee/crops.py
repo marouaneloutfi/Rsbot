@@ -65,7 +65,7 @@ class Crops:
     def group_labels(self,labels,new_label, tresh):
         check_labels(labels)
         confidence = self.collection.select('confidence').first()
-        cropland = self.collection.select('cropland',[new_label]).first()
+        cropland = self.collection.select(['cropland'],[new_label]).first()
         crop_mask = cropland.eq(LABELS[labels[0]])
         for label in labels[1:]:
             crop_mask = crop_mask.add(cropland.eq(LABELS[label]))
