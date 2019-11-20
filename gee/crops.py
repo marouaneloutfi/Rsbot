@@ -70,9 +70,7 @@ class Crops:
         for label in labels[1:]:
             crop_mask = crop_mask.add(cropland.eq(LABELS[label]))
         crop_mask = crop_mask.where(confidence.lt(tresh), 0)
-        bg = ee.Image(1)
-        for mask in crop_mask:
-            bg = bg.neq(mask)
+        bg = ee.Image(1).neq(crop_mask)
         return ee.Image.cat(crop_mask + [bg.select(['constant'], ['background'])])
 
     def concatenate_labels(self, labels, thresh):
