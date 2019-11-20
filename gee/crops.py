@@ -70,8 +70,8 @@ class Crops:
     def group_labels(self, labels, new_label, tresh):
         check_labels(labels)
         confidence = self.collection.select('confidence').first()
-        cropland = self.collection.select(['cropland'],[new_label]).first()
-        crop_mask = cropland.eq(LABELS[labels[0]])
+        cropland = self.collection.select(['cropland']).first()
+        crop_mask = cropland.eq([LABELS[labels[0]]], [new_label])
         for label in labels[1:]:
             crop_mask = crop_mask.add(cropland.eq(LABELS[label]))
         return crop_mask.where(confidence.lt(tresh), 0)
@@ -83,12 +83,14 @@ class Crops:
         crop_mask = [self.collection.select(['cropland'], [label]).first().eq(LABELS[label]).where(confidence.lt(thresh), 0).where(cultivated.eq(CULTIVATED[label]), 0) for label in labels]
         return ee.Image.cat(crop_mask)
 
-    def conactenate_image(self, images):
+    @staticmethod
+    def concatenate_image(images, background=True):
         image = ee.Image.cat(images)
-        bg = ee.Image(1)
-        bands = image.bandNames()
-        for i in range(bands.size().getInfo()):
-            bg = bg.neq(image.select(bands.get(i).getInfo()))
-        image = ee.Image.cat(images + [bg.select(['constant'], ['background'])])
+        if background:
+            bg = ee.Image(1)
+            bands = image.bandNames()
+            for i in range(bands.size().getInfo()):
+                bg = bg.neq(image.select(bands.get(i).getInfo()))
+            image = ee.Image.cat(images + [bg.select(['constant'], ['background'])])
         print(image.getInfo())
         return image

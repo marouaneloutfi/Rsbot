@@ -4,6 +4,7 @@ from .utils import get_selectors
 
 tf.enable_eager_execution()
 
+
 def get_columns(features, kernel_shape):
     return [tf.io.FixedLenFeature(shape=kernel_shape, dtype=tf.float32) for k in features]
 
@@ -16,7 +17,7 @@ class TfDatasetParser:
         columns = get_columns(self.features, [kernel_size, kernel_size])
         self.feature_dic = dict(zip(self.features, columns))
 
-    def get_dataset(self, tf_dir,kernel_size, shuffle=True):
+    def get_dataset(self, tf_dir, kernel_size, shuffle=True):
         """Get the preprocessed dataset
       Returns:
         A tf.data.Dataset of the shards in the folder specified
