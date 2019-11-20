@@ -1,8 +1,8 @@
 import tensorflow as tf
 import numpy as np
 from .utils import get_selectors
+from PIL import  Image
 
-tf.enable_eager_execution()
 
 
 def get_columns(features, kernel_shape):
@@ -115,5 +115,6 @@ def binary_mask_original(crop_mask):
 
 
 
-
-
+def read_png(file):
+    image = Image.open(file)
+    return np.array(image)

@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d94698c-72fa-4f22-87af-d394243f59d1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gee/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/gee/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gee/tf_io.py" beforeDir="false" afterPath="$PROJECT_DIR$/gee/tf_io.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,17 +30,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gee/crops.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="93" column="10" lean-forward="true" selection-start-line="93" selection-start-column="10" selection-end-line="93" selection-end-column="10" />
+            <state relative-caret-position="584">
+              <caret line="75" column="37" lean-forward="true" selection-start-line="75" selection-start-column="37" selection-end-line="75" selection-end-column="37" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gee/utils.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="518">
-              <caret line="85" column="34" selection-start-line="85" selection-start-column="34" selection-end-line="85" selection-end-column="34" />
+              <caret line="85" column="23" selection-start-line="85" selection-start-column="10" selection-end-line="85" selection-end-column="23" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -49,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gee/tf_io.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
+            <state relative-caret-position="135">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -119,9 +118,9 @@
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/gee/dataset.py" />
         <option value="$PROJECT_DIR$/tests/test_crops.py" />
-        <option value="$PROJECT_DIR$/gee/tf_io.py" />
         <option value="$PROJECT_DIR$/gee/crops.py" />
         <option value="$PROJECT_DIR$/gee/utils.py" />
+        <option value="$PROJECT_DIR$/gee/tf_io.py" />
       </list>
     </option>
   </component>
@@ -232,18 +231,17 @@
       <workItem from="1573154898414" duration="791000" />
       <workItem from="1574067697707" duration="22136000" />
       <workItem from="1574149121672" duration="21345000" />
-      <workItem from="1574240072964" duration="15737000" />
+      <workItem from="1574240072964" duration="18179000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123494000" />
+    <option name="totallyTimeSpent" value="125936000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="24" width="1920" height="1080" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7593985" visible="true" weight="0.12860192" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7593985" visible="true" weight="0.12860192" />
       <window_info id="Structure" order="1" sideWeight="0.24060151" side_tool="true" weight="0.12753469" />
       <window_info id="Favorites" order="2" sideWeight="0.5007032" side_tool="true" weight="0.12379936" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -257,7 +255,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5010672" side_tool="true" weight="0.33193278" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49893278" visible="true" weight="0.30147058" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49893278" visible="true" weight="0.30147058" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32983193" />
       <window_info anchor="bottom" id="Jupyter" order="13" visible="true" weight="0.32878152" />
       <window_info anchor="bottom" id="Messages" order="14" />
@@ -419,33 +417,6 @@
     <entry file="file://$PROJECT_DIR$/tests/test_crops.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/unet_3d.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="32" lean-forward="true" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gee/tf_io.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gee/crops.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="93" column="10" lean-forward="true" selection-start-line="93" selection-start-column="10" selection-end-line="93" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gee/dataset.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-212">
@@ -456,12 +427,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/gee/crops.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="584">
+          <caret line="75" column="37" lean-forward="true" selection-start-line="75" selection-start-column="37" selection-end-line="75" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/unet_3d.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="32" lean-forward="true" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/gee/utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="518">
-          <caret line="85" column="34" selection-start-line="85" selection-start-column="34" selection-end-line="85" selection-end-column="34" />
+          <caret line="85" column="23" selection-start-line="85" selection-start-column="10" selection-end-line="85" selection-end-column="23" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gee/tf_io.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
           </folding>
         </state>
       </provider>
