@@ -83,4 +83,5 @@ def temp_concatenate(satellite, labels, year, kernel_size=256,  sr=True):
     _list = ee.List.repeat(1, kernel_size)
     lists = ee.List.repeat(_list, kernel_size)
     kernel = ee.Kernel.fixed(kernel_size, kernel_size, lists)
+    print(feature_stack.getInfo())
     return feature_stack.neighborhoodToArray(kernel)
