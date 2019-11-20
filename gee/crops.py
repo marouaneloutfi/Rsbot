@@ -2,7 +2,7 @@ import ee
 
 LABELS = {
     'Corn': 1,
-    'Cotton':2,
+    'Cotton': 2,
     'Rice': 3,
     'Soybeans': 5,
     'Sunflower': 6,
@@ -18,8 +18,6 @@ LABELS = {
     'Evergreen Forest': 142,
     'Mixed Forest': 143,
     'Dbl Crop Lettuce/Cotton': 232
-
-
 }
 
 CULTIVATED = {
@@ -71,7 +69,11 @@ class Crops:
         crop_mask = cropland.eq(LABELS[labels[0]])
         for label in labels[1:]:
             crop_mask = crop_mask.add(cropland.eq(LABELS[label]))
-        return crop_mask.where(confidence.lt(tresh), 0)
+        crop_mask = crop_mask.where(confidence.lt(tresh), 0)
+        bg = ee.Image(1)
+        for mask in crop_mask:
+            bg = bg.neq(mask)
+        return ee.Image.cat(crop_mask + [bg.select(['constant'], ['background'])])
 
     def concatenate_labels(self, labels, thresh):
         check_labels(labels)
@@ -87,10 +89,3 @@ class Crops:
 
     def conactenate_image(self, images):
         return ee.Image.cat(images)
-
-
-
-
-
-
-
