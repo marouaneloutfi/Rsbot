@@ -71,7 +71,7 @@ class Crops:
         check_labels(labels)
         confidence = self.collection.select('confidence').first()
         cropland = self.collection.select(['cropland']).first()
-        crop_mask = cropland.eq([LABELS[labels[0]]], [new_label])
+        crop_mask = self.collection.select(['cropland'], [new_label]).first().eq(LABELS[labels[0]])
         for label in labels[1:]:
             crop_mask = crop_mask.add(cropland.eq(LABELS[label]))
         return crop_mask.where(confidence.lt(tresh), 0)
