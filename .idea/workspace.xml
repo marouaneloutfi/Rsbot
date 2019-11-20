@@ -30,8 +30,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gee/crops.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="524">
-              <caret line="93" column="48" lean-forward="true" selection-start-line="93" selection-start-column="48" selection-end-line="93" selection-end-column="48" />
+            <state relative-caret-position="539">
+              <caret line="94" column="29" selection-start-line="94" selection-start-column="29" selection-end-line="94" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -231,18 +231,18 @@
       <workItem from="1573154898414" duration="791000" />
       <workItem from="1574067697707" duration="22136000" />
       <workItem from="1574149121672" duration="21345000" />
-      <workItem from="1574240072964" duration="9952000" />
+      <workItem from="1574240072964" duration="10029000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117709000" />
+    <option name="totallyTimeSpent" value="117786000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="24" width="1920" height="1080" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7593985" visible="true" weight="0.12860192" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7593985" visible="true" weight="0.12860192" />
       <window_info id="Structure" order="1" sideWeight="0.24060151" side_tool="true" weight="0.12753469" />
       <window_info id="Favorites" order="2" sideWeight="0.5007032" side_tool="true" weight="0.12379936" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -256,7 +256,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5010672" side_tool="true" weight="0.33193278" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49893278" visible="true" weight="0.30147058" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49893278" visible="true" weight="0.30147058" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32983193" />
       <window_info anchor="bottom" id="Jupyter" order="13" visible="true" weight="0.32878152" />
       <window_info anchor="bottom" id="Messages" order="14" />
@@ -460,8 +460,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gee/crops.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="93" column="48" lean-forward="true" selection-start-line="93" selection-start-column="48" selection-end-line="93" selection-end-column="48" />
+        <state relative-caret-position="539">
+          <caret line="94" column="29" selection-start-line="94" selection-start-column="29" selection-end-line="94" selection-end-column="29" />
         </state>
       </provider>
     </entry>

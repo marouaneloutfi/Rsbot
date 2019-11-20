@@ -92,4 +92,5 @@ class Crops:
         for image in images:
             bg = bg.neq(image)
         image = ee.Image.cat(images+[bg.select(['constant'], ['background'])])
+        print(image.getInfo())
         return image
