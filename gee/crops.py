@@ -2,7 +2,10 @@ import ee
 
 LABELS = {
     'Corn': 1,
+    'Cotton':2,
+    'Rice': 3,
     'Soybeans': 5,
+    'Sunflower': 6,
     'Durum Wheat': 22,
     'Spring Wheat': 23,
     'Winter Wheat': 24,
@@ -13,7 +16,9 @@ LABELS = {
     'forrest': 63,
     'Deciduous Forest': 141,
     'Evergreen Forest': 142,
-    'Mixed Forest': 143
+    'Mixed Forest': 143,
+    'Dbl Crop Lettuce/Cotton': 232
+
 
 }
 
