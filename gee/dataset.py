@@ -30,6 +30,7 @@ class Dataset:
         self.length = len(self.geom)
         self.exp_size = export_size
         self.counter = 0
+        self.size = 0
 
     def __iter__(self):
         return self
@@ -57,6 +58,7 @@ class Dataset:
                 seed=42,
                 # dropNulls = True
             )
+            self.size += sample.size().getInfo()
             geom_sample = geom_sample.merge(sample)
         return geom_sample
 
