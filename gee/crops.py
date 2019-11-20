@@ -81,11 +81,7 @@ class Crops:
         confidence = self.collection.select('confidence').first()
         cultivated = self.collection.select('cultivated').first()
         crop_mask = [self.collection.select(['cropland'], [label]).first().eq(LABELS[label]).where(confidence.lt(thresh), 0).where(cultivated.eq(CULTIVATED[label]), 0) for label in labels]
-        bg = ee.Image(1)
-        for mask in crop_mask:
-            bg = bg.neq(mask)
-        final_mask = crop_mask + [bg.select(['constant'], ['background'])]
-        return ee.Image.cat(final_mask)
+        return ee.Image.cat(crop_mask)
 
     def conactenate_image(self, images):
         image = ee.Image.cat(images)
