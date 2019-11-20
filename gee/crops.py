@@ -67,16 +67,14 @@ class Crops:
     def palette(self):
         return self.collection.map(Crops.apply_palette)
 
-    def group_labels(self,labels,new_label, tresh):
+    def group_labels(self, labels, new_label, tresh):
         check_labels(labels)
         confidence = self.collection.select('confidence').first()
         cropland = self.collection.select(['cropland'],[new_label]).first()
         crop_mask = cropland.eq(LABELS[labels[0]])
         for label in labels[1:]:
             crop_mask = crop_mask.add(cropland.eq(LABELS[label]))
-        crop_mask = crop_mask.where(confidence.lt(tresh), 0)
-        bg = ee.Image(1).neq(crop_mask)
-        return ee.Image.cat([crop_mask, bg.select(['constant'], ['background'])])
+        return crop_mask.where(confidence.lt(tresh), 0)
 
     def concatenate_labels(self, labels, thresh):
         check_labels(labels)
@@ -90,6 +88,8 @@ class Crops:
         return ee.Image.cat(final_mask)
 
     def conactenate_image(self, images):
-        image = ee.Image.cat(images)
-        print(image.getInfo())
+        bg = ee.Image(1)
+        for image in images:
+            bg = bg.neq(image)
+        image = ee.Image.cat(images+[bg.select(['constant'], ['background'])])
         return image
