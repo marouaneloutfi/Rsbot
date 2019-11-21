@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6d94698c-72fa-4f22-87af-d394243f59d1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gee/dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/gee/dataset.py" afterDir="false" />
-    </list>
+    <list default="true" id="6d94698c-72fa-4f22-87af-d394243f59d1" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,11 +13,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gee/dataset.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="9" lean-forward="true" selection-start-column="9" selection-end-column="9" />
+            <state relative-caret-position="345">
+              <caret line="56" column="28" selection-start-line="56" selection-start-column="26" selection-end-line="56" selection-end-column="28" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -34,11 +34,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gee/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="443">
-              <caret line="80" lean-forward="true" selection-start-line="80" selection-end-line="80" />
+            <state relative-caret-position="210">
+              <caret line="14" column="9" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="9" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -230,18 +230,18 @@
       <workItem from="1574067697707" duration="22136000" />
       <workItem from="1574149121672" duration="21345000" />
       <workItem from="1574240072964" duration="19963000" />
-      <workItem from="1574324558011" duration="3663000" />
+      <workItem from="1574324558011" duration="4447000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="131383000" />
+    <option name="totallyTimeSpent" value="132167000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1916" y="24" width="1928" height="1080" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7593985" visible="true" weight="0.12966916" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7593985" visible="true" weight="0.12966916" />
       <window_info id="Structure" order="1" sideWeight="0.24060151" side_tool="true" weight="0.12753469" />
       <window_info id="Favorites" order="2" sideWeight="0.5007032" side_tool="true" weight="0.12379936" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -255,7 +255,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5010672" side_tool="true" weight="0.33193278" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49893278" visible="true" weight="0.30147058" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49893278" visible="true" weight="0.30147058" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32983193" />
       <window_info anchor="bottom" id="Jupyter" order="13" visible="true" weight="0.32878152" />
       <window_info anchor="bottom" id="Messages" order="14" />
@@ -427,6 +427,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/gee/crops.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="103" column="17" lean-forward="true" selection-start-line="103" selection-start-column="17" selection-end-line="103" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/gee/tf_io.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -437,26 +444,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gee/dataset.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="9" lean-forward="true" selection-start-column="9" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gee/crops.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="103" column="17" lean-forward="true" selection-start-line="103" selection-start-column="17" selection-end-line="103" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gee/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="80" lean-forward="true" selection-start-line="80" selection-end-line="80" />
+        <state relative-caret-position="210">
+          <caret line="14" column="9" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="9" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gee/dataset.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="56" column="28" selection-start-line="56" selection-start-column="26" selection-end-line="56" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
