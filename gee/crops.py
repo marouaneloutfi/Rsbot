@@ -11,12 +11,21 @@ LABELS = {
     'Winter Wheat': 24,
     'Other Small Grains': 25,
     'Alfalfa': 36,
+    'Sugarbeets': 41,
+    'Dry Beans': 42,
     'Potatoes': 43,
     'Sweet Potatoes': 46,
-    'forrest': 63,
+    'Cucumbers': 50,
+    'Forest': 63,
+    'Developed': 82,
+    'Developed/Open Space': 121,
+    'Developed/Low Intensity': 122,
+    'Developed/Med Intensity': 123,
+    'Developed/High Intensity': 124,
     'Deciduous Forest': 141,
     'Evergreen Forest': 142,
     'Mixed Forest': 143,
+    'Grassland/Pasture': 176,
     'Dbl Crop Lettuce/Cotton': 232
 }
 
@@ -32,13 +41,22 @@ CULTIVATED = {
     'Winter Wheat': 1,
     'Other Small Grains': 1,
     'Alfalfa': 1,
+    'Sugarbeets': 1,
+    'Dry Beans': 1,
     'Potatoes': 1,
     'Sweet Potatoes': 1,
     'Dbl Crop Lettuce/Cotton': 1,
-    'forrest': 2,
+    'Cucumbers': 1,
+    'Forest': 2,
     'Deciduous Forest': 2,
     'Evergreen Forest': 2,
-    'Mixed Forest': 2
+    'Mixed Forest': 2,
+    'Grassland/Pasture': 2,
+    'Developed': 2,
+    'Developed/Open Space': 2,
+    'Developed/Low Intensity': 2,
+    'Developed/Med Intensity': 2,
+    'Developed/High Intensity': 2,
 }
 
 
@@ -67,14 +85,14 @@ class Crops:
     def palette(self):
         return self.collection.map(Crops.apply_palette)
 
-    def group_labels(self, labels, new_label, tresh):
+    def group_labels(self, labels, new_label, thresh):
         check_labels(labels)
         confidence = self.collection.select('confidence').first()
         cropland = self.collection.select(['cropland']).first()
         crop_mask = self.collection.select(['cropland'], [new_label]).first().eq(LABELS[labels[0]])
         for label in labels[1:]:
             crop_mask = crop_mask.add(cropland.eq(LABELS[label]))
-        return crop_mask.where(confidence.lt(tresh), 0)
+        return crop_mask.where(confidence.lt(thresh), 0)
 
     def concatenate_labels(self, labels, thresh):
         check_labels(labels)
