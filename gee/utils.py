@@ -14,6 +14,8 @@ def split_rectangle(rect, x_density, y_density, geometry='polygon'):
     coords = rect['coordinates'][0]
     min_x, max_x = coords[0][0], coords[2][0]
     min_y, max_y = coords[1][1], coords[0][1]
+    x_density = (max_x - min_x) / x_density
+    y_density = (max_y - min_y) / y_density
     x = np.arange(min_x, max_x, x_density)
     y = np.arange(min_y, max_y, y_density)
     if geometry == 'polygon':
