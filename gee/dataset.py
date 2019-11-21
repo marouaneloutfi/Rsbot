@@ -54,11 +54,11 @@ class Dataset:
             sample = self.data.sample(
                 region=g,
                 scale=30,
-                numPixels=5,
+                numPixels=10,
                 seed=42,
-                # dropNulls = True
+                dropNulls=True
             )
-            self.size +=sample.size().getInfo()
+            self.size += sample.size().getInfo()
             geom_sample = geom_sample.merge(sample)
         return geom_sample
 

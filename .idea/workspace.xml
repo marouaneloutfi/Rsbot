@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6d94698c-72fa-4f22-87af-d394243f59d1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gee/crops.py" beforeDir="false" afterPath="$PROJECT_DIR$/gee/crops.py" afterDir="false" />
-    </list>
+    <list default="true" id="6d94698c-72fa-4f22-87af-d394243f59d1" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,8 +28,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gee/crops.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="53" column="27" lean-forward="true" selection-start-line="53" selection-start-column="27" selection-end-line="53" selection-end-column="27" />
+            <state relative-caret-position="360">
+              <caret line="26" column="12" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -233,16 +230,15 @@
       <workItem from="1574067697707" duration="22136000" />
       <workItem from="1574149121672" duration="21345000" />
       <workItem from="1574240072964" duration="19963000" />
-      <workItem from="1574324558011" duration="1261000" />
+      <workItem from="1574324558011" duration="1938000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128981000" />
+    <option name="totallyTimeSpent" value="129658000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1916" y="24" width="1928" height="1080" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7593985" visible="true" weight="0.12966916" />
       <window_info id="Structure" order="1" sideWeight="0.24060151" side_tool="true" weight="0.12753469" />
@@ -462,8 +458,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gee/crops.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="53" column="27" lean-forward="true" selection-start-line="53" selection-start-column="27" selection-end-line="53" selection-end-column="27" />
+        <state relative-caret-position="360">
+          <caret line="26" column="12" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
         </state>
       </provider>
     </entry>
