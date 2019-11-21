@@ -77,7 +77,7 @@ def hex_to_rgb(hex_str):
     return np.array(rgb)
 
 
-palette = ['ffd300', '267000', 'ffa5e2', 'a57000', '93cc93', '000000']
+palette = ['ffd300', '267000', 'ffa5e2', 'a800e2', 'a50000', 'e8ffbf', 'ff6666', '702600', 'd8b56b', '93cc93', '999999', '000000']
 
 
 def binary_mask(crop_mask):
