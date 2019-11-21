@@ -54,7 +54,7 @@ class Dataset:
             sample = self.data.sample(
                 region=g,
                 scale=30,
-                numPixels=5,
+                numPixels=2,
                 seed=42,
                 # dropNulls=True
             )

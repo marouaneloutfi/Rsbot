@@ -56,7 +56,7 @@ def get_selectors(bands):
     return selectors
 
 
-def temp_concatenate(satellite, labels, year, kernel_size=256,  sr=True):
+def temp_concatenate(satellite, year, labels=None, kernel_size=256,  sr=True):
     year = str(year)
     img_c = satellite.collection.sort('system:time_start')
     img_m = img_c.filterDate(year + '-03-01', year + '-03-30')
@@ -79,7 +79,11 @@ def temp_concatenate(satellite, labels, year, kernel_size=256,  sr=True):
         current_img = current_img.select(satellite.bands, temp_divide(satellite.bands, month)).median()
         img_m = ee.Image.cat([img_m, current_img])
 
-    feature_stack = ee.Image.cat([img_m, labels]).float()
+    if labels is not None:
+        feature_stack = ee.Image.cat([img_m, labels]).float()
+    else:
+        feature_stack = img_m
+
     _list = ee.List.repeat(1, kernel_size)
     lists = ee.List.repeat(_list, kernel_size)
     kernel = ee.Kernel.fixed(kernel_size, kernel_size, lists)
