@@ -56,10 +56,10 @@ class Dataset:
                 scale=30,
                 numPixels=10,
                 seed=42,
-                dropNulls=True
+                # dropNulls=True
             )
-            self.size += sample.size().getInfo()
             geom_sample = geom_sample.merge(sample)
+        self.size += geom_sample.size().getInfo()
         return geom_sample
 
     def export_to_drive(self, geom_sample, selectors, desc, folder='records'):
@@ -67,7 +67,3 @@ class Dataset:
         self.current_batch.start()
         self.batches.append(self.current_batch)
         return self.current_batch
-
-
-def get_sample(point):
-    point = ee.Geometry.Point()
