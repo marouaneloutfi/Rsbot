@@ -17,6 +17,7 @@ LABELS = {
     'Sweet Potatoes': 46,
     'Cucumbers': 50,
     'Forest': 63,
+    'Grapes': 69,
     'Developed': 82,
     'Developed/Open Space': 121,
     'Developed/Low Intensity': 122,
@@ -26,6 +27,7 @@ LABELS = {
     'Evergreen Forest': 142,
     'Mixed Forest': 143,
     'Grassland/Pasture': 176,
+    'olives': 211,
     'Dbl Crop Lettuce/Cotton': 232
 }
 
@@ -47,6 +49,7 @@ CULTIVATED = {
     'Sweet Potatoes': 1,
     'Dbl Crop Lettuce/Cotton': 1,
     'Cucumbers': 1,
+    'Grapes': 1,
     'Forest': 2,
     'Deciduous Forest': 2,
     'Evergreen Forest': 2,
@@ -57,6 +60,7 @@ CULTIVATED = {
     'Developed/Low Intensity': 2,
     'Developed/Med Intensity': 2,
     'Developed/High Intensity': 2,
+    'olives': 211
 }
 
 
