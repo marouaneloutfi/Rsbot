@@ -22,11 +22,14 @@ def create_task(samples, selectors, description, folder):
 
 class Dataset:
 
-    def __init__(self, image, bbox, density, export_size=30):
+    def __init__(self, image, bbox, density, num_samples = 5 , export_size=30):
         self.batches = []
         self.current_batch = None
         self.data = image
-        self.geom = split_rectangle(ee.Geometry.Polygon(bbox), density[0], density[1])
+        if num_samples > 5:
+            self.geom = split_rectangle(ee.Geometry.Polygon(bbox), density[0], density[1])
+        else:
+            self.geom = [bbox]
         self.length = len(self.geom)
         self.exp_size = export_size
         self.counter = 0
@@ -54,7 +57,7 @@ class Dataset:
             sample = self.data.sample(
                 region=g,
                 scale=30,
-                numPixels=2,
+                numPixels=5,
                 seed=42,
                 # dropNulls=True
             )
