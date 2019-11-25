@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d94698c-72fa-4f22-87af-d394243f59d1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gee/dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/gee/dataset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gee/tf_io.py" beforeDir="false" afterPath="$PROJECT_DIR$/gee/tf_io.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notebooks/Rsbot" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/Rsbot" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,7 +16,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gee/dataset.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="457">
@@ -50,7 +49,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gee/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1290">
+            <state relative-caret-position="577">
               <caret line="87" column="19" selection-start-line="87" selection-start-column="15" selection-end-line="87" selection-end-column="19" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
@@ -59,11 +58,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gee/tf_io.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="571">
-              <caret line="68" column="25" selection-start-line="68" selection-start-column="25" selection-end-line="68" selection-end-column="25" />
+            <state relative-caret-position="466">
+              <caret line="109" column="43" selection-start-line="109" selection-start-column="43" selection-end-line="109" selection-end-column="43" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -128,10 +127,10 @@
         <option value="$PROJECT_DIR$/tests/test_crops.py" />
         <option value="$PROJECT_DIR$/gee/crops.py" />
         <option value="$PROJECT_DIR$/models/unet_3d.py" />
-        <option value="$PROJECT_DIR$/gee/tf_io.py" />
         <option value="$PROJECT_DIR$/gee/utils.py" />
         <option value="$PROJECT_DIR$/gee/core.py" />
         <option value="$PROJECT_DIR$/gee/dataset.py" />
+        <option value="$PROJECT_DIR$/gee/tf_io.py" />
       </list>
     </option>
   </component>
@@ -252,12 +251,12 @@
       <workItem from="1574324558011" duration="14451000" />
       <workItem from="1574414712816" duration="2390000" />
       <workItem from="1574430022791" duration="1525000" />
-      <workItem from="1574671637290" duration="1553000" />
+      <workItem from="1574671637290" duration="2803000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="147639000" />
+    <option name="totallyTimeSpent" value="148889000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="24" width="1920" height="1080" extended-state="6" />
@@ -446,16 +445,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gee/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1290">
-          <caret line="87" column="19" selection-start-line="87" selection-start-column="15" selection-end-line="87" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/unet_3d.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
@@ -466,22 +455,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gee/tf_io.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="571">
-          <caret line="68" column="25" selection-start-line="68" selection-start-column="25" selection-end-line="68" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gee/dataset.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="457">
           <caret line="59" column="27" selection-start-line="59" selection-start-column="27" selection-end-line="59" selection-end-column="27" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gee/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="577">
+          <caret line="87" column="19" selection-start-line="87" selection-start-column="15" selection-end-line="87" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gee/tf_io.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="466">
+          <caret line="109" column="43" selection-start-line="109" selection-start-column="43" selection-end-line="109" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
           </folding>
         </state>
       </provider>

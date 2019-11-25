@@ -108,7 +108,7 @@ def binary_mask_original(crop_mask):
                 if ch >= y[crop]:
                     crop = i
             if y[crop] < 0.65 and crop in [0, 1]:
-                crop = 5
+                crop = len(palette) - 1
             temp.append(hex_to_rgb(palette[crop]))
         bin_mask.append(temp)
     return np.array(bin_mask, dtype=np.uint8)
