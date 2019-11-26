@@ -21,8 +21,8 @@ def cluster(mask):
     mask_h = cv2.dilate(mask_h, kernel=kernel_h, iterations=3)
 
     kernel_v = cv2.getStructuringElement(cv2.MORPH_RECT, (1, KERNEL_SIZE))
-    mask_v = cv2.erode(mask, kernel=kernel_h, iterations=3)
-    mask_v = cv2.dilate(mask_v, kernel=kernel_h, iterations=3)
+    mask_v = cv2.erode(mask, kernel=kernel_v, iterations=3)
+    mask_v = cv2.dilate(mask_v, kernel=kernel_v, iterations=3)
 
     return cv2.addWeighted(mask_v, 0.5, mask_h, 0.5, 0.0)
 
@@ -30,6 +30,8 @@ def cluster(mask):
 def save_as_png(image):
     cv2.imwrite("output.png", image)
 
+def bin_mask(mask):
+    for
 
 if __name__ == '__main__':
     args = _parse_args()
