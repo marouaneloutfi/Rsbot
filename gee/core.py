@@ -75,3 +75,31 @@ class Landsat8(Satellite):
 
     def filter_clouds(self, collection):
         return collection.map(self.mask_l8sr)
+
+
+class Sentinel2(Satellite):
+
+    optical_bands = ['B2', 'B3', 'B4', 'B5', 'B6', 'B7']
+    thermal_bands = ['B10', 'B11']
+
+    def __init__(self, uri):
+        super().__init__(uri)
+        self.set_bands(self.optical_bands + self.thermal_bands)
+
+    """ 
+    Function to mask clouds based on the pixel_qa band of Sentinel 2 data.
+    @param {ee.Image} image Input Landsat 8 SR image
+    @return {ee.Image} Cloud masked Landsat 8 image
+    @source  https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2
+    """
+    @staticmethod
+    def mask_s2_clouds(image):
+        qa = image.select('QA60')
+        cloud_bit_mask = 1 << 10
+        cirrus_bit_mask = 1 << 11
+        mask = qa.bitwiseAnd(cloud_bit_mask).eq(0).And(qa.bitwiseAnd(cirrus_bit_mask).eq(0))
+        return image.updateMask(mask).divide(10000)
+
+    @staticmethod
+    def filter_clouds( collection):
+        return collection.map(Sentinel2.mask_s2_clouds)
