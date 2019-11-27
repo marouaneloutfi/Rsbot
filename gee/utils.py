@@ -65,7 +65,7 @@ def temp_concatenate(satellite, year, labels=None, kernel_size=256,  sr=True):
         img_m = satellite.filter_clouds(img_m)
 
     img_m = img_m.select(satellite.bands, temp_divide(satellite.bands, 3)).median()
-    for month in range(3, 11):
+    for month in range(4, 11):
         if month >= 10:
             datefilter = ee.Filter.date(year + '-' + str(month) + '-01',
                                         year + '-' + str(month) + '-30')
