@@ -2,90 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d94698c-72fa-4f22-87af-d394243f59d1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tools/visualize.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/pythonapp.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/pythonapp.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/.buildinfo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/.doctrees/environment.pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/.doctrees/index.doctree" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/_sources/index.rst.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/_static/ajax-loader.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/_static/alabaster.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/_static/basic.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/_static/comment-bright.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/_static/comment-close.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/_static/comment.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/_static/custom.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/_static/doctools.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/_static/documentation_options.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/_static/down-pressed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/_static/down.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/_static/file.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/_static/jquery-1.11.1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/_static/jquery-3.4.1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/_static/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/_static/language_data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/_static/minus.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/_static/plus.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/_static/pygments.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/_static/searchtools.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/_static/underscore-1.3.1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/_static/underscore.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/_static/up-pressed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/_static/up.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/_static/websupport.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/doctrees/environment.pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/doctrees/index.doctree" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/genindex.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/.buildinfo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/_sources/index.rst.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/_static/ajax-loader.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/_static/alabaster.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/_static/basic.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/_static/comment-bright.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/_static/comment-close.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/_static/comment.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/_static/custom.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/_static/doctools.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/_static/documentation_options.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/_static/down-pressed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/_static/down.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/_static/file.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/_static/jquery-1.11.1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/_static/jquery-3.4.1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/_static/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/_static/language_data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/_static/minus.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/_static/plus.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/_static/pygments.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/_static/searchtools.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/_static/underscore-1.3.1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/_static/underscore.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/_static/up-pressed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/_static/up.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/_static/websupport.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/genindex.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/objects.inv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/search.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/html/searchindex.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/objects.inv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/search.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/searchindex.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conf.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gee/core.py" beforeDir="false" afterPath="$PROJECT_DIR$/gee/core.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gee/dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/gee/dataset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gee/tf_io.py" beforeDir="false" afterPath="$PROJECT_DIR$/gee/tf_io.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/make.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/output.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/test.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/test2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/test_original.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/vectorise.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/vectorise.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -131,20 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="689">
-              <caret line="52" selection-start-line="52" selection-end-line="52" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.github/workflows/pythonapp.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" selection-start-line="19" selection-end-line="19" />
+            <state relative-caret-position="391">
+              <caret line="28" selection-start-line="28" selection-end-line="28" />
             </state>
           </provider>
         </entry>
@@ -203,8 +111,8 @@
         <option value="$PROJECT_DIR$/gee/dataset.py" />
         <option value="$PROJECT_DIR$/gee/utils.py" />
         <option value="$PROJECT_DIR$/conf.py" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/.github/workflows/pythonapp.yml" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -237,6 +145,11 @@
               <item name="Rsbot.CVA" type="462c0819:PsiDirectoryNode" />
               <item name=".github" type="462c0819:PsiDirectoryNode" />
               <item name="workflows" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Rsbot.CVA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Rsbot.CVA" type="462c0819:PsiDirectoryNode" />
+              <item name="notebooks" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -324,7 +237,7 @@
       <workItem from="1574430022791" duration="1525000" />
       <workItem from="1574671637290" duration="13587000" />
       <workItem from="1574756508919" duration="12434000" />
-      <workItem from="1574842492042" duration="4138000" />
+      <workItem from="1574842492042" duration="4229000" />
     </task>
     <task id="LOCAL-00001" summary="added sentinel2">
       <created>1574773475857</created>
@@ -337,7 +250,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="176245000" />
+    <option name="totallyTimeSpent" value="176336000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="24" width="1920" height="1080" extended-state="6" />
@@ -593,17 +506,17 @@
     <entry file="file://$PROJECT_DIR$/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="689">
-          <caret line="52" selection-start-line="52" selection-end-line="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.github/workflows/pythonapp.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
         </state>
       </provider>
     </entry>

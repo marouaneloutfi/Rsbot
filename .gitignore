@@ -24,6 +24,9 @@ pip-delete-this-directory.txt
 # mkdocs documentation
 /site
 
+# Jupyter Notebook
+.ipynb_checkpoints
+
 
 # Distribution / packaging
 .Python
