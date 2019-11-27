@@ -11,9 +11,9 @@ class Gee:
     tiles = 'https://earthengine.googleapis.com/map/{mapid}/{{z}}/{{x}}/{{y}}?token={token}'
 
     @staticmethod
-    def get_instance(ipython=False):
+    def get_instance(auth=False):
         if Gee.__instance is None:
-            Gee(ipython)
+            Gee(auth)
         return Gee.__instance
 
     def __new__(cls, *args, **kwargs):
@@ -21,8 +21,8 @@ class Gee:
             cls.__instance = object.__new__(Gee)
         return cls.__instance
 
-    def __init__(self, ipython=False):
-        if ipython:
+    def __init__(self, auth=False):
+        if auth:
             ee.Authenticate()
         ee.Initialize()
 
@@ -42,6 +42,9 @@ class Satellite:
 
     def set_bands(self, bands):
         self.bands = bands
+
+    def filter_bands(self, user_bands):
+        [self.bands.remove(band) for band in self.bands if band not in user_bands]
 
 
 class Landsat8(Satellite):

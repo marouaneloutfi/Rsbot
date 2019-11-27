@@ -1,12 +1,9 @@
 import tensorflow as tf
-import numpy as np
 from .utils import get_selectors
-from PIL import Image
-
 
 
 def get_columns(features, kernel_shape):
-    return [tf.io.FixedLenFeature(shape=kernel_shape, dtype=tf.float32) for k in features]
+    return [tf.io.FixedLenFeature(shape=kernel_shape, dtype=tf.float32) for _ in features]
 
 
 class TfDatasetParser:
@@ -17,7 +14,7 @@ class TfDatasetParser:
         columns = get_columns(self.features, [kernel_size, kernel_size])
         self.feature_dic = dict(zip(self.features, columns))
 
-    def get_dataset(self, tf_dir, kernel_size, n_samples, batch_size, shuffle=True):
+    def get_dataset(self, tf_dir, n_samples, batch_size, shuffle=True):
         """Get the preprocessed dataset
       Returns:
         A tf.data.Dataset of the shards in the folder specified
@@ -59,59 +56,3 @@ class TfDatasetParser:
             example = iter(dataset.take(1)).next()
             tempo_slices = example[0][0].numpy()[:, :, :len(get_selectors(self._bands))]
             return [tempo_slices[:, :, i:i + 8] for i in range(0, len(get_selectors(self._bands)), 8)]
-
-
-
-#####  functions to be refactored
-def hex_to_rgb(hex_str):
-    hex_str = hex_str.strip()
-
-    if hex_str[0] == '#':
-        hex_str = hex_str[1:]
-
-    if len(hex_str) != 6:
-        raise ValueError('Input #{} is not in #RRGGBB format.'.format(hex_str))
-
-    r, g, b = hex_str[:2], hex_str[2:4], hex_str[4:]
-    rgb = [int(n, base=16) for n in [r, g, b]]
-    return np.array(rgb)
-
-
-palette = ['ffd300', '267000', 'a800e2', 'a50000', 'ff6600', '702600', '704489', '334933', 'ff2626', 'd8b56b', '7cafaf', '000000']
-
-
-def binary_mask(crop_mask):
-    bin_mask = []
-    for x in crop_mask:
-        temp = []
-        for y in x:
-            crop = 0
-            for i, ch in enumerate(y):
-                if ch >= y[crop]:
-                    crop = i
-            temp.append(hex_to_rgb(palette[crop]))
-        bin_mask.append(temp)
-    return np.array(bin_mask, dtype=np.uint8)
-
-
-def binary_mask_original(crop_mask):
-    bin_mask = []
-    for x in crop_mask:
-        temp = []
-        for y in x:
-            crop = 0
-            for i, ch in enumerate(y):
-                if i in [0, 1]:
-                    ch *= 0.7
-                if ch >= y[crop]:
-                    crop = i
-            if y[crop] < 0.65 and crop in [0, 1]:
-                crop = len(palette) - 1
-            temp.append(hex_to_rgb(palette[crop]))
-        bin_mask.append(temp)
-    return np.array(bin_mask, dtype=np.uint8)
-
-
-def read_png(file):
-    image = Image.open(file)
-    return np.array(image)

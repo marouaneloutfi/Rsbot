@@ -30,8 +30,6 @@ def cluster(mask):
 def save_as_png(image):
     cv2.imwrite("output.png", image)
 
-def bin_mask(mask):
-    for
 
 if __name__ == '__main__':
     args = _parse_args()
