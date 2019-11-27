@@ -1,0 +1,10 @@
+site_name: Rsbot.CVA
+
+nav:
+    - Home: index.md
+    - User Guide: user_guide.md
+    - Api reference: api_docs.md
+    - About: about.md
+theme: readthedocs
+
+

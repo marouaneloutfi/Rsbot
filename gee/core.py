@@ -44,7 +44,7 @@ class Satellite:
         self.bands = bands
 
     def filter_bands(self, user_bands):
-        [self.bands.remove(band) for band in self.bands if band not in user_bands]
+        self.collection.select(user_bands)
 
 
 class Landsat8(Satellite):
