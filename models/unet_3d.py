@@ -29,13 +29,13 @@ class Unet3D:
 
         # Encoder block
         for i in range(self.depth):
-            n_filters = self.n_base_filters*(2**(i))
+            n_filters = self.n_base_filters*(2**i)
             conv_block = self.create_conv3d_block(current_layer, n_filters=n_filters, kernel_shape=(3, 3, 3), name="convBlock0"+str(i))
             pool_layer = MaxPooling3D(self.pool_shape, name="max_pool_"+str(i))(conv_block)
             current_layer = Dropout(self.dropout*0.5)(pool_layer)
             conv_blocks.append(conv_block)
 
-        n_filters = self.n_base_filters*(2**(self.depth))
+        n_filters = self.n_base_filters*(2**self.depth)
         current_layer = self.create_conv3d_block(current_layer, n_filters=n_filters, kernel_shape=(3, 3, 3))
 
         # Decoder block
@@ -44,7 +44,7 @@ class Unet3D:
             deconv_block = self.create_deconv3d_block(current_layer, conv_block, n_filters, (3, 3, 3), name="deconvBlock"+str(i))
             deconv_block = Dropout(self.dropout)(deconv_block)
             current_layer = self.create_conv3d_block(deconv_block, n_filters=n_filters, kernel_shape=(3, 3, 3), name="convBlock1"+str(i))
-        p = MaxPooling3D((1, 1, 8), name='max_block_8')(current_layer)
+        p = MaxPooling3D((1, 1, 3), name='max_block_8')(current_layer)
         r = Reshape((self.input_shape[0], self.input_shape[1], self.n_base_filters*2))(p)
         outputs = Conv2D(self.num_classes, (1, 1), activation=final_activation, name="output")(r)
 
