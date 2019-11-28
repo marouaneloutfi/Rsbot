@@ -7,7 +7,7 @@ def get_columns(features, kernel_shape):
 
 
 class TfDatasetParser:
-    _bands = ['B2', 'B3', 'B4', 'B5', 'B6', 'B7', 'B10', 'B11']
+    _bands = ['B2', 'B3', 'B4']
 
     def __init__(self, kernel_size, response):
         self.features = get_selectors(self._bands) + response
