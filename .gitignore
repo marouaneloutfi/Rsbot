@@ -53,3 +53,7 @@ MANIFEST
 main.py
 notebooks/images
 .idea
+
+# Sqlite3 test databases
+
+*.db
