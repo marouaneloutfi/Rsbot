@@ -57,3 +57,6 @@ notebooks/images
 # Sqlite3 test databases
 
 *.db
+
+# testing
+main.py
