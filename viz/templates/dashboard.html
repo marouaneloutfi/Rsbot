@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html class="fixed">
+	<head>
+
+		<!-- Basic -->
+		<meta charset="UTF-8">
+
+		<title>Rsbot Dashboard </title>
+		<meta name="keywords" content="Remote sensing deep learning keras tensorflow classification segmentation satellite images imagery" />
+		<meta name="description" content="A Visualisation interface for tensorflow model's training results...">
+
+		<!-- Mobile Metas -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+		<!-- Web Fonts  -->
+		<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
+
+		<!-- Vendor CSS -->
+		<link rel="stylesheet" href="../static/assets/vendor/bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" href="../static/assets/vendor/font-awesome/css/font-awesome.css" />
+		<link rel="stylesheet" href="../static/assets/vendor/magnific-popup/magnific-popup.css" />
+		<link rel="stylesheet" href="../static/assets/vendor/bootstrap-datepicker/css/datepicker3.css" />
+
+		<!-- Theme CSS -->
+		<link rel="stylesheet" href="../static/assets/stylesheets/theme.css" />
+
+		<!-- Skin CSS -->
+		<link rel="stylesheet" href="../static/assets/stylesheets/skins/default.css" />
+
+		<!-- Theme Custom CSS -->
+		<link rel="stylesheet" href="../static/assets/stylesheets/theme-custom.css">
+
+		<!-- Head Libs -->
+		<script src="../static/assets/vendor/modernizr/modernizr.js"></script>
+
+	</head>
+	<body>
+		<section class="body">
+
+			<!-- start: header -->
+			<header class="header">
+				<div class="logo-container">
+					<a href="#" class="logo">
+						<img src="../static/assets/logo_cva.svg" height="35" alt="Logo cva-group" />
+					</a>
+					<div class="visible-xs toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
+						<i class="fa fa-bars" aria-label="Toggle sidebar"></i>
+					</div>
+				</div>
+			
+				<!-- start: search & user box -->
+				<div class="header-right">
+			
+					<form action="pages-search-results.html" class="search nav-form">
+						<div class="input-group input-search">
+							<input type="text" class="form-control" name="q" id="q" placeholder="Search...">
+							<span class="input-group-btn">
+								<button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+							</span>
+						</div>
+					</form>
+			
+					<span class="separator"></span>
+			
+					
+			</header>
+			<!-- end: header -->
+
+			<div class="inner-wrapper">
+				<!-- start: sidebar -->
+				<aside id="sidebar-left" class="sidebar-left">
+				
+					<div class="sidebar-header">
+						<div class="sidebar-title">
+							Menu
+						</div>
+						<div class="sidebar-toggle hidden-xs" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
+							<i class="fa fa-bars" aria-label="Toggle sidebar"></i>
+						</div>
+					</div>
+				
+					<div class="nano">
+						<div class="nano-content">
+							<nav id="menu" class="nav-main" role="navigation">
+								<ul class="nav nav-main">
+									<li>
+										<a href="index.html">
+											<i class="fa fa-dashboard" aria-hidden="true"></i>
+											<span>Dashboard</span>
+										</a>
+									</li>
+									<li>
+										<a href="mailbox-folder.html">
+											<span class="pull-right label label-primary">10</span>
+											<i class="fa fa-sitemap" aria-hidden="true"></i>
+											<span>Models</span>
+										</a>
+									</li>
+									<li>
+										<a href="mailbox-folder.html">
+											<span class="pull-right label label-primary"></span>
+											<i class="fa fa-flask" aria-hidden="true"></i>
+											<span>Experiments</span>
+										</a>
+									</li>
+									<li>
+										<a href="mailbox-folder.html">
+											<span class="pull-right label label-primary"></span>
+											<i class="fa fa-sliders" aria-hidden="true"></i>
+											<span>Comparison</span>
+										</a>
+									</li>
+								</ul>
+							</nav>
+				
+							<hr class="separator" />
+				
+							<div class="sidebar-widget widget-tasks">
+								<div class="widget-header">
+									<h6>Latest Models</h6>
+									<div class="widget-toggle">+</div>
+								</div>
+								<div class="widget-content">
+									<ul class="list-unstyled m-none">
+										<li><a href="#">Unet3D with AVGPool</a></li>
+										<li><a href="#">Unet with 3D CNN</a></li>
+										<li><a href="#">first try Unet multi-label</a></li>
+									</ul>
+								</div>
+							</div>
+				
+							<hr class="separator" />
+				
+							<div class="sidebar-widget widget-stats">
+								<div class="widget-header">
+									<h6>Latest results</h6>
+									<div class="widget-toggle">+</div>
+								</div>
+								<div class="widget-content">
+									<ul>
+										<li>
+											<span class="stats-title">Unet3D Michigan</span>
+											<span class="stats-complete">96%</span>
+											<div class="progress">
+												<div class="progress-bar progress-bar-primary progress-without-number" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="width: 96%;">
+													<span class="sr-only">96% Complete</span>
+												</div>
+											</div>
+										</li>
+										<li>
+											<span class="stats-title">Unet3D multiple zones</span>
+											<span class="stats-complete">98%</span>
+											<div class="progress">
+												<div class="progress-bar progress-bar-primary progress-without-number" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 98%;">
+													<span class="sr-only">98% Complete</span>
+												</div>
+											</div>
+										</li>
+										<li>
+											<span class="stats-title">Unet3D chicago area</span>
+											<span class="stats-complete">92%</span>
+											<div class="progress">
+												<div class="progress-bar progress-bar-primary progress-without-number" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100" style="width: 92%;">
+													<span class="sr-only">92% Complete</span>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+				
+					</div>
+				
+				</aside>
+				<!-- end: sidebar -->
+
+				<section role="main" class="content-body">
+					<header class="page-header">
+						<h2>Dashboard</h2>
+					</header>
+
+					<!-- start: page -->
+					<!-- end: page -->
+				</section>
+			</div>
+		</section>
+
+		<!-- Vendor -->
+		<script src="../static/assets/vendor/jquery/jquery.js"></script>
+		<script src="../static/assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+		<script src="../static/assets/vendor/bootstrap/js/bootstrap.js"></script>
+		<script src="../static/assets/vendor/nanoscroller/nanoscroller.js"></script>
+		<script src="../static/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+		<script src="../static/assets/vendor/magnific-popup/magnific-popup.js"></script>
+		<script src="../static/assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+		
+		<!-- Theme Base, Components and Settings -->
+		<script src="../static/assets/javascripts/theme.js"></script>
+		
+		<!-- Theme Custom -->
+		<script src="../static/assets/javascripts/theme.custom.js"></script>
+		
+		<!-- Theme Initialization Files -->
+		<script src="../static/assets/javascripts/theme.init.js"></script>
+
+	</body>
+
+	<!--
+		This dashboard uses the Octopus theme provided by colorlib
+
+		License
+
+		Octopus is licensed under The MIT License (MIT). Which means that you can use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the final products. But you always need to state that Colorlib is the original author of this template.
+	-->
+</html>
