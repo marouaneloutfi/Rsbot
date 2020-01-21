@@ -59,9 +59,9 @@ class Dataset:
             sample = self.data.sample(
                 region=poly,
                 scale=self.scale,
-                factor=1,
+                factor=0.5,
                 seed=42,
-                tileScale=4
+                # tileScale=4
                 # dropNulls=True
             )
             geom_sample = geom_sample.merge(sample)
