@@ -59,7 +59,7 @@ class Dataset:
             sample = self.data.sample(
                 region=poly,
                 scale=self.scale,
-                factor=0.5,
+                factor=0.1,
                 seed=42,
                 # tileScale=4
                 # dropNulls=True
