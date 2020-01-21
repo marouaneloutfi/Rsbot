@@ -56,6 +56,7 @@ class Dataset:
         geom_sample = ee.FeatureCollection([])
         for i in range(geom.size().getInfo()):
             poly = point_to_poly(geom.get(i).getInfo()['coordinates'])
+            print(poly)
             sample = self.data.sample(
                 region=poly,
                 scale=self.scale,
