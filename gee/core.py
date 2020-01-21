@@ -104,5 +104,16 @@ class Sentinel2(Satellite):
         return image.updateMask(mask).divide(10000)
 
     @staticmethod
-    def filter_clouds( collection):
+    def filter_clouds(collection):
         return collection.map(Sentinel2.mask_s2_clouds)
+
+
+class FeatureCollection(ee.FeatureCollection):
+
+    _palette = {}
+
+    def __init__(self, uri):
+        super().__init__(uri)
+
+    def set_palette(self, palette):
+        self._palette = palette

@@ -1,5 +1,5 @@
 import ee
-from .utils import split_rectangle
+from .utils import split_rectangle, point_to_poly
 
 
 def create_task(samples, selectors, description, folder):
@@ -22,12 +22,15 @@ def create_task(samples, selectors, description, folder):
 
 class Dataset:
 
-    def __init__(self, image, bbox, density, scale=30, export_size=30):
+    def __init__(self, image, bbox, density=None, scale=30, export_size=30, points=False):
         self.batches = []
         self.current_batch = None
         self.data = image
-        self.geom = split_rectangle(ee.Geometry.Polygon(bbox), density[0], density[1])
-        self.length = len(self.geom)
+        if not points:
+            self.geom = split_rectangle(ee.Geometry.Polygon(bbox), density[0], density[1])
+        else:
+            self.geom = bbox.geometry().geometries()
+        self.length = self.geom.size().getInfo()
         self.exp_size = export_size
         self.counter = 0
         self.size = 0
@@ -41,19 +44,20 @@ class Dataset:
             raise StopIteration
         else:
             try:
-                samples = self.sample_data(self.geom[self.counter: self.counter + self.exp_size])
+                samples = self.sample_data(self.geom.slice(self.counter, self.counter + self.exp_size))
                 self.counter += self.exp_size
                 return samples
             except IndexError:
-                samples = self.sample_data(self.geom[self.counter:])
+                samples = self.sample_data(self.geom.slice(self.counter))
                 self.counter += self.exp_size
                 return samples
 
     def sample_data(self, geom):
         geom_sample = ee.FeatureCollection([])
-        for g in geom:
+        for i in range(geom.size().getInfo()):
+            poly = point_to_poly(geom.get(i).getInfo()['coordinates'])
             sample = self.data.sample(
-                region=g,
+                region=poly,
                 scale=self.scale,
                 numPixels=1,
                 seed=42,

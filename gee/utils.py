@@ -17,21 +17,32 @@ def split_rectangle(rect, x_density, y_density, geometry='polygon'):
     x = np.arange(min_x, max_x, x_density)
     y = np.arange(min_y, max_y, y_density)
     if geometry == 'polygon':
-        return [ee.Geometry.Polygon([[[_x, _y + y_density],
+        polygon = ee.FeatureCollection([])
+        [polygon.merge(ee.Geometry.Polygon([[[_x, _y + y_density],
                                       [_x, _y],
                                       [_x + x_density, _y],
-                                      [_x + x_density, _y + y_density]]]) for _x in x for _y in y]
+                                      [_x + x_density, _y + y_density]]])) for _x in x for _y in y]
+        return polygon
     elif geometry == 'point':
-        points = []
+        points = ee.FeatureCollection([])
         for _x in x:
             for _y in y:
-                points.append(ee.Geometry.Point([_x, _y + y_density]))
-                points.append(ee.Geometry.Point([_x, _y]))
-                points.append(ee.Geometry.Point([_x + x_density, _y]))
-                points.append(ee.Geometry.Point([_x + x_density, _y + y_density]))
+                points.merge(ee.Geometry.Point([_x, _y + y_density]))
+                points.merge(ee.Geometry.Point([_x, _y]))
+                points.merge(ee.Geometry.Point([_x + x_density, _y]))
+                points.merge(ee.Geometry.Point([_x + x_density, _y + y_density]))
         return points
     else:
         raise ValueError("geometry type not supported yet")
+
+
+def point_to_poly(coords):
+    x, y = coords[0], coords[1]
+    offset = 0.2
+    return ee.Geometry.Polygon([[x - offset, y + offset],
+                                [x - offset, y - offset],
+                                [x + offset, y - offset],
+                                [x + offset, y + offset]])
 
 
 def join_collection(image, mask):
@@ -89,3 +100,10 @@ def temp_concatenate(satellite, year, labels=None, kernel_size=256,  sr=True):
     kernel = ee.Kernel.fixed(kernel_size, kernel_size, lists)
     print(feature_stack.getInfo())
     return feature_stack.neighborhoodToArray(kernel)
+
+
+def feature_stack(image, KERNEL_SIZE=256):
+    list = ee.List.repeat(1, KERNEL_SIZE)
+    lists = ee.List.repeat(list, KERNEL_SIZE)
+    kernel = ee.Kernel.fixed(KERNEL_SIZE, KERNEL_SIZE, lists)
+    return image.float().neighborhoodToArray(kernel)
