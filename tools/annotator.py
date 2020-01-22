@@ -77,6 +77,7 @@ template = """
 			})();
 			
 		</script>
+		%s
 """
 
 
