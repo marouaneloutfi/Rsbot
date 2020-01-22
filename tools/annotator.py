@@ -1,7 +1,7 @@
 from IPython.display import display, HTML
 
 template = """
-<div id="image" class="image"></div>
+<canvas id="image" class="image" width=256 height=256></canvas>
 <div id="rect"></div>
 <div id="bounds"></div>
 <style>      
@@ -13,7 +13,6 @@ template = """
             cursor: pointer;
             position: relative;
 
-            background-image: url("https://www.petmd.com/sites/default/files/adult-homeless-cat-asking-for-food-picture-id847415388.jpg")
         }
 
 
@@ -69,6 +68,21 @@ template = """
         boundsDiv.innerText = 'crop rect: ' + rect.x0 + ',' + rect.y0 + ' to ' + rect.x1 + ',' + rect.y0;
     }
     })();
+    
+    
+function handleImage(){
+    var reader = new FileReader();
+    reader.onload = function(event){
+        var img = new Image();
+        img.onload = function(){
+            context.drawImage(img,0,0,160,160);
+            getImage();
+        }
+        img.src = event.target.result;
+    }
+    reader.readAsDataURL("https://www.petmd.com/sites/default/files/adult-homeless-cat-asking-for-food-picture-id847415388.jpg");     
+}
+handleImage();
 </script>
 """
 
