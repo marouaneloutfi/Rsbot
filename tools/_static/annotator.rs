@@ -18,7 +18,7 @@
 </div>-->
 
 <div id='imageContainer'>
-    <img src ="https://2.bp.blogspot.com/-DA-AWeLTFl8/VjrN9o0Qq8I/AAAAAAACKss/ETFryZPNmr0/s1600/crowdsourcing%2Bsolar%2Bfarms%2Bfrom%2Bsatellite%2Bimages.jpg" alt="" id="image">
+    <img src ="{0}" alt="" id="image">
 <button id="clear" class="button">  Reset </button>
     <div id="rect"></div>
 </div>
