@@ -1,5 +1,6 @@
 from IPython.display import display, HTML
-
+from pathlib import Path
+from os.path import join
 
 def read_file(template_uri):
     t = open(template_uri, 'r')
@@ -8,7 +9,7 @@ def read_file(template_uri):
 
 class Annotator:
 
-    _template_uri = "_static/annotator.rs"
+    _template_uri = join(Path(__file__), "_static", "annotator.rs")
 
     def __init__(self, folder, parser):
         self.folder = folder
