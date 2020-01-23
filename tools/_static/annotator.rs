@@ -23,7 +23,7 @@
 </div>-->
 
 <div id='imageContainer'>
-    <img src ="%s" alt="" id="image">
+    <img src ="{0}" alt="" id="image">
 <button id="clear" class="button">  Reset </button>
     <div id="rect"></div>
 </div>

@@ -3,9 +3,6 @@ from pathlib import Path
 from os.path import join
 
 
-
-
-
 class Annotator:
 
     _template_uri = join(Path(__file__).parent.absolute(), "_static", "annotator.rs")
