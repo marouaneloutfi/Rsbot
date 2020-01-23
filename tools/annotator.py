@@ -9,7 +9,7 @@ def read_file(template_uri):
 
 class Annotator:
 
-    _template_uri = join(Path(__file__), "_static", "annotator.rs")
+    _template_uri = join(Path(__file__).parent.absolute(), "_static", "annotator.rs")
 
     def __init__(self, folder, parser):
         self.folder = folder
