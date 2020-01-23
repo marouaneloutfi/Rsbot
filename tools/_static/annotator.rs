@@ -39,8 +39,8 @@
   margin: 4px 2px;
   cursor: pointer;
   margin-top: 5px;
-  margin-left: 40%;
-  margin-right: 40%;
+  margin-left: 40%%;
+  margin-right: 40%%;
 }
 
 .button:hover{
@@ -87,7 +87,7 @@ form {
   border-bottom: 2px solid #fff;
   padding: 0px 0px 0px 20px;
   margin: 0px 0px;
-  width: 50%;
+  width: 50%%;
   outline: none;
   text-align: center;
   font-size: 15px;
@@ -103,7 +103,7 @@ form {
   background-color: transparent;
   padding: 0px;
   border: 2px solid #fff;
-  border-radius: 50%;
+  border-radius: 50%%;
   box-shadow: none;
   cursor: pointer;
   outline: none;
@@ -124,7 +124,7 @@ form {
   display:grid;
   grid-gap: 10px;
   margin-top: 1.5rem;
-  width: 95%;
+  width: 95%%;
   margin: auto;
 }
 
@@ -139,7 +139,7 @@ form {
 
 #imageContainer img {
   display:block;
-  max-width: 100%;
+  max-width: 100%%;
 }
 
 /* Styles for sliders*/
@@ -194,7 +194,7 @@ input[type=range]::-webkit-slider-thumb {
   border: none;
   height: 20px;
   width: 20px;
-  border-radius: 50%;
+  border-radius: 50%%;
   background: #4B77BE;
   margin-top: -6px;
   vertical-align: middle;
@@ -245,7 +245,7 @@ input[type=range]:hover {
   .editorContainer{
     grid-template-columns: 1fr 2fr;
     align-items: center;
-    width: 100%;
+    width: 100%%;
   }
   #imageContainer{
     order:2;
