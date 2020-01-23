@@ -55,7 +55,6 @@
 
 body {
   font-family: monospace;
-  margin: 0 auto;
   max-width:940px;
   height:100vh;
   background: #111;
