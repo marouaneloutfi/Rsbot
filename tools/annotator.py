@@ -2,9 +2,8 @@ from IPython.display import display, HTML
 from pathlib import Path
 from os.path import join
 
-def read_file(template_uri):
-    t = open(template_uri, 'r')
-    return t.read()
+
+
 
 
 class Annotator:
@@ -14,7 +13,7 @@ class Annotator:
     def __init__(self, folder, parser):
         self.folder = folder
         self.parser = folder
-        self.template = read_file(self._template_uri)
+        self.template = Path(self._template_uri).read_text()
 
     def annotate(self, image):
         display(HTML(self.template % image))
