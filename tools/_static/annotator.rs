@@ -244,7 +244,7 @@ input[type=range]:hover {
 @media (min-width:480px){
   .editorContainer{
     grid-template-columns: 1fr 2fr;
-    align-items: center;
+    align-items: left;
     width: 100%%;
   }
   #imageContainer{
