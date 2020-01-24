@@ -38,7 +38,7 @@ def split_rectangle(rect, x_density, y_density, geometry='polygon'):
 
 def point_to_poly(coords):
     x, y = coords[0], coords[1]
-    offset = 0.02
+    offset = 0.010
     return ee.Geometry.Polygon([[x - offset, y + offset],
                                 [x - offset, y - offset],
                                 [x + offset, y - offset],
