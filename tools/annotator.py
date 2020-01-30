@@ -35,7 +35,7 @@ class Annotator:
         self.im_buffer = Annotator.parse_image(image)
         im_base64 = b64encode(self.im_buffer).decode('utf-8')
         display(HTML(self.template.format(image=im_base64, next=_next,
-                                          previous= _previous, skip=_skip )))
+                                          previous= _previous, skip=_skip)))
 
     def _next(self):
         example = iter(self.parser.take(self.sample_size)).__next__()
@@ -48,7 +48,8 @@ class Annotator:
         self.annotate(self.prev)
 
     def _save(self, rects):
-        print(rects)
+        #  print(rects)
+        print("hello world")
         # TFExample(self.im_buffer, xmins, xmaxs, ymins, ymaxs)
         # self.writer.write(TFExample.tf_example)
         self._next()
