@@ -28,9 +28,9 @@ class Annotator:
         self.im_buffer = None
 
     def annotate(self, image):
-        _next = Annotator.register_button(self.save)
-        _previous = Annotator.register_button(self.previous)
-        _skip = Annotator.register_button(self.next)
+        _next = Annotator.register_button(self._save)
+        _previous = Annotator.register_button(self._previous)
+        _skip = Annotator.register_button(self._next)
         self.im_buffer = Annotator.parse_image(image)
         im_base64 = b64encode(self.im_buffer).decode('utf-8')
         display(HTML(self.template.format(image=im_base64, next=_next,
@@ -46,7 +46,7 @@ class Annotator:
     def _previous(self):
         self.annotate(self.prev)
 
-    def save(self, xmins, xmaxs, ymins, ymaxs):
+    def _save(self, xmins, xmaxs, ymins, ymaxs):
         TFExample(self.im_buffer, xmins, xmaxs, ymins, ymaxs)
         self.writer.write(TFExample.tf_example)
         self._next()
