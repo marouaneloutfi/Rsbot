@@ -279,7 +279,7 @@ input[type=range]:hover {
     image.addEventListener('mouseup', mouseup);
     image.addEventListener('mousemove', mousemove);
     clear_button.addEventListener('click', clearAll);
-    previous_button.addEventListener('click', previous);
+    prev_button.addEventListener('click', previous);
     next_button.addEventListener('click', next);
     skip_button.addEventListener('click', skip);
 
@@ -320,7 +320,6 @@ input[type=range]:hover {
 
     function mouseup(e) {
         grab = false;
-        console.log(rect)
         rects.push(rect);
         rect_count++;
         box = initBox();
@@ -367,7 +366,7 @@ input[type=range]:hover {
     }
 
         function skip(){
-      IPython.notebook.kernel.execute("print('Hello from the js cell'))";
+      IPython.notebook.kernel.execute("print('Hello from the js cell')");
     }
 
     })();
