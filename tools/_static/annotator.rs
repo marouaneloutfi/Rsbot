@@ -373,7 +373,7 @@ input[type=range]:hover {{
 
 
         function next(){{
-      google.colab.kernel.invokeFunction('{next}', "'''"   + JSON.stringify(rects) + "'''");
+      google.colab.kernel.invokeFunction('{next}',[], JSON.stringify(rects));
     }}
 
         function skip(){{
