@@ -262,9 +262,9 @@ input[type=range]:hover {{
 (function () {{
     var image = document.getElementById('image');
     var clear_button = document.getElementById('clear');
-    var prev_button = document.getElementById('previous');
-    var next_button = document.getElementById('next');
-    var skip_button = document.getElementById('skip');
+    var prev_button = document.getElementById('{previous}');
+    var next_button = document.getElementById('{next}');
+    var skip_button = document.getElementById('{skip}');
 
     var divs = {{
         rects_div: document.getElementById('rect'),
