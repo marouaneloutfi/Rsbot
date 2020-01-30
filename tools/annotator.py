@@ -5,7 +5,7 @@ from PIL import Image
 from base64 import b64encode
 import tensorflow as tf
 import numpy as np
-from IPython.display import display, HTML
+from IPython.display import display, HTML, clear_output
 from object_detection.utils import dataset_util
 try:
     from google.colab import output
@@ -28,6 +28,7 @@ class Annotator:
         self.im_buffer = None
 
     def annotate(self, image):
+        clear_output()
         _next = Annotator.register_button(self._save)
         _previous = Annotator.register_button(self._previous)
         _skip = Annotator.register_button(self._next)
@@ -46,9 +47,10 @@ class Annotator:
     def _previous(self):
         self.annotate(self.prev)
 
-    def _save(self, xmins, xmaxs, ymins, ymaxs):
-        TFExample(self.im_buffer, xmins, xmaxs, ymins, ymaxs)
-        self.writer.write(TFExample.tf_example)
+    def _save(self, rects):
+        print(rects)
+        # TFExample(self.im_buffer, xmins, xmaxs, ymins, ymaxs)
+        # self.writer.write(TFExample.tf_example)
         self._next()
 
     @staticmethod
