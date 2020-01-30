@@ -324,7 +324,7 @@ input[type=range]:hover {{
 
     function mouseup(e) {{
         grab = false;
-        register(rec);
+        register(rect);
         rect_count++;
         box = initBox();
     }}
@@ -374,7 +374,6 @@ input[type=range]:hover {{
 
         function next(){{
             consolde.log(JSON.stringify(rects) );
-
       google.colab.kernel.invokeFunction('{next}', "'''"   + JSON.stringify(rects) + "'''");
     }}
 
