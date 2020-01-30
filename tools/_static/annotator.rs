@@ -18,7 +18,7 @@
 </div>-->
 
 <div id='imageContainer'>
-    <img src ="%s" alt="" id="image">
+    <img src ="data:image/png;base64, %s" alt="" id="image">
 <button id="clear" class="button">  Reset </button>
     <div id="rect"></div>
 </div>
