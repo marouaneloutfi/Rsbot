@@ -19,7 +19,10 @@
 
 <div id='imageContainer'>
     <img src ="data:image/png;base64, %s" alt="" id="image">
-<button id="clear" class="button">  Reset </button>
+    <button id="previous" class="button">  Previous </button>
+    <button id="next" class="button">  Next </button>
+    <button id="skip" class="button">  Skip </button>
+    <button id="clear" class="button">  Reset </button>
     <div id="rect"></div>
 </div>
  </section>
@@ -261,6 +264,10 @@ input[type=range]:hover {
 (function () {
     var image = document.getElementById('image');
     var clear_button = document.getElementById('clear');
+    var prev_button = document.getElementById('previous');
+    var next_button = document.getElementById('next');
+    var skip_button = document.getElementById('skip');
+
     var divs = {
         rects_div: document.getElementById('rect'),
         bounds_div: document.getElementById('imageEditor')
@@ -272,6 +279,9 @@ input[type=range]:hover {
     image.addEventListener('mouseup', mouseup);
     image.addEventListener('mousemove', mousemove);
     clear_button.addEventListener('click', clearAll);
+    previous_button.addEventListener('click', previous);
+    next_button.addEventListener('click', next);
+    skip_button.addEventListener('click', skip);
 
     var grab = false;
     var rect_count = 0;
@@ -345,6 +355,19 @@ input[type=range]:hover {
         divs.rects_div.innerHTML = "";
         divs.bounds_div.innerHTML = "";
         box = initBox();
+    }
+
+        function previous(){
+         IPython.notebook.kernel.execute("foo=42");
+    }
+
+
+        function next(){
+      IPython.notebook.kernel.execute("self._next()");
+    }
+
+        function skip(){
+      IPython.notebook.kernel.execute("print('Hello from the js cell'))";
     }
 
     })();
