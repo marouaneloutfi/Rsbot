@@ -9,6 +9,8 @@ from IPython.display import display, HTML
 from object_detection.utils import dataset_util
 try:
     from google.colab import output
+except:
+    print("Not on google colab")
 import uuid
 
 
