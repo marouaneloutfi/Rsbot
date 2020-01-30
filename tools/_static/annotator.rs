@@ -283,7 +283,13 @@ input[type=range]:hover {{
 
     var grab = false;
     var rect_count = 0;
-    var rects = [];
+    var rects = {{
+        xmins: [],
+        xmaxs: [],
+        ymins:[],
+        ymaxs:[],
+
+    }};
 
     var rect = {{
     x0: 0,
@@ -318,7 +324,7 @@ input[type=range]:hover {{
 
     function mouseup(e) {{
         grab = false;
-        rects.push(rect);
+        register(rec);
         rect_count++;
         box = initBox();
     }}
@@ -331,6 +337,13 @@ input[type=range]:hover {{
         box.rect.style.width = (client_rect.x1 - client_rect.x0) + 'px';
         box.rect.style.height = (client_rect.y1 - client_rect.y0) + 'px';
         box.bounds.innerText = 'x: ' + rect.x0 + ', ' + rect.x1 + '\ny: ' + rect.y0 + ', ' + rect.y1;
+    }}
+
+    function register(rec){{
+        recs.xmins.push(rec.x0);
+        recs.xmaxs.push(rec.x1);
+        recs.ymins.push(rec.y0);
+        recs.ymaxs.push(rec.y1);
     }}
 
      function initBox(){{
@@ -360,7 +373,8 @@ input[type=range]:hover {{
 
 
         function next(){{
-      google.colab.kernel.invokeFunction('{next}', "'''"   + JSON.stringify(rects) + "'''");
+
+      google.colab.kernel.invokeFunction('{next}',{{}},  + JSON.stringify(rects));
     }}
 
         function skip(){{
