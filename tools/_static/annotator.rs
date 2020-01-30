@@ -376,7 +376,7 @@ input[type=range]:hover {{
 
 
         function next(){{
-      google.colab.kernel.invokeFunction('{next}',[], "'''" + JSON.stringify(buffer) + "'''");
+      google.colab.kernel.invokeFunction('{next}','' ,'"' + buffer + '"');
     }}
 
         function skip(){{
