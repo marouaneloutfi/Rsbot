@@ -1,1 +1,2 @@
 earthengine-api
+tensorflow-object-detection-api
