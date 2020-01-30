@@ -355,7 +355,7 @@ input[type=range]:hover {{
     }}
 
         function previous(){{
-         google.colab.kernel.invokeFunction('{previous}', [], {{}});
+         google.colab.kernel.invokeFunction('{previous}');
     }}
 
 
@@ -364,7 +364,7 @@ input[type=range]:hover {{
     }}
 
         function skip(){{
-      google.colab.kernel.invokeFunction('{skip}', [], {{}});
+      google.colab.kernel.invokeFunction('{skip}');
     }}
 
     }})();
