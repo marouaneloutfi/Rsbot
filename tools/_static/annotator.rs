@@ -18,10 +18,10 @@
 </div>-->
 
 <div id='imageContainer'>
-    <img src ="data:image/png;base64, %s" alt="" id="image">
-    <button id="previous" class="button">  Previous </button>
-    <button id="next" class="button">  Next </button>
-    <button id="skip" class="button">  Skip </button>
+    <img src ="data:image/png;base64, {image}" alt="" id="image">
+    <button id="{previous}" class="button">  Previous </button>
+    <button id="{next}" class="button">  Next </button>
+    <button id="{skip}" class="button">  Skip </button>
     <button id="clear" class="button">  Reset </button>
     <div id="rect"></div>
 </div>
@@ -30,7 +30,7 @@
 
 <style>
     /* General styles for the page */
-    .button {
+    .button {{
   background-color: gray; /* Green */
   border: none;
   color: white;
@@ -42,46 +42,44 @@
   margin: 4px 2px;
   cursor: pointer;
   margin-top: 5px;
-  margin-left: 40%%;
-  margin-right: 40%%;
-}
+}}
 
-.button:hover{
+.button:hover{{
   background:#E84F4F;
-}
+}}
 
-* {
+* {{
   margin: 0;
   padding: 0;
   box-sizing:border-box;
-}
+}}
 
-body {
+body {{
   font-family: monospace;
   max-width:940px;
   height:100vh;
   background: #111;
   color:#fff;
-}
+}}
 
-h1 {
+h1 {{
   margin: 25px 0 25px 0;
   font-size: 40px;
   text-align: center;
   color:#fff;
-}
+}}
 
-hr {
+hr {{
   margin: 20px 0;
-}
+}}
 
-form {
+form {{
   text-align: center;
-}
+}}
 
 /* Styles for  URL box */
 
-.url-box {
+.url-box {{
   background-color: transparent;
   display: inline-block;
   height: 2em;
@@ -96,9 +94,9 @@ form {
   font-family: monospace;
   font-weight: 100;
   color: #fff;
-}
+}}
 
-#go {
+#go {{
   display: inline-block;
   height: 50px;
   width: 50px;
@@ -114,51 +112,51 @@ form {
   font-family: monospace;
   font-weight: 100;
   color: #fff;
-}
+}}
 
-#go:hover{
+#go:hover{{
   background: #4B77BE;
-}
+}}
 
 /* editor container */
 
-.editorContainer{
+.editorContainer{{
   display:grid;
   grid-gap: 10px;
   margin-top: 1.5rem;
   width: 95%%;
   margin: auto;
-}
+}}
 
 /* Styles for image container*/
 
-#imageContainer {
+#imageContainer {{
   border-radius: 2px;
   padding: 0.15rem;
   max-width: 640px;
   border: 2px solid #111;
-}
+}}
 
-#imageContainer img {
+#imageContainer img {{
   display:block;
   max-width: 100%%;
-}
+}}
 
 /* Styles for sliders*/
 
-.sliders {
+.sliders {{
   border: 2px solid #fff;
   border-radius: 10px;
   padding-left: 10px;
   order: 1;
-}
+}}
 
-.sliders p {
+.sliders p {{
   margin: 18px 0;
   vertical-align: middle;
-}
+}}
 
-.sliders label {
+.sliders label {{
   display: inline-block;
   margin: 10px 0 0 0;
   width: 150px;
@@ -166,32 +164,32 @@ form {
   color: #fff;
   text-align: left;
   vertical-align: middle;
-}
+}}
 
-.sliders input {
+.sliders input {{
   position: relative;
   margin: 10px 20px 0 10px;
   vertical-align: middle;
-}
+}}
 
-input[type=range] {
+input[type=range] {{
   /*removes default webkit styles*/
   -webkit-appearance: none;
   /*fix for FF unable to apply focus style bug */
   border-radius: 5px;
   /*required for proper track sizing in FF*/
   width: 150px;
-}
+}}
 
-input[type=range]::-webkit-slider-runnable-track {
+input[type=range]::-webkit-slider-runnable-track {{
   width: 300px;
   height: 7px;
   background: #ABB7B7;
   border: none;
   border-radius: 3px;
-}
+}}
 
-input[type=range]::-webkit-slider-thumb {
+input[type=range]::-webkit-slider-thumb {{
   -webkit-appearance: none;
   border: none;
   height: 20px;
@@ -200,17 +198,17 @@ input[type=range]::-webkit-slider-thumb {
   background: #4B77BE;
   margin-top: -6px;
   vertical-align: middle;
-}
-input[type=range]:focus {
+}}
+input[type=range]:focus {{
   outline: none;
-}
+}}
 
-input[type=range]:hover {
+input[type=range]:hover {{
     cursor: pointer;
-}
+}}
 
 
-.reset{
+.reset{{
   display: inline-block;
   height: 40px;
   width: 100px;
@@ -229,49 +227,49 @@ input[type=range]:hover {
   margin: 0 0 10px 0;
   transition: 1s cubic-bezier(0, 1.27, 0.52, 1.5);
 
-}
+}}
 
-.reset:hover{
+.reset:hover{{
   background:#E84F4F;
-}
+}}
 
-.p {
+.p {{
   clear: both;
   text-align: center;
   padding:  20px 0 20px;
-}
+}}
 
 /* Media queries */
 
-@media (min-width:480px){
-  .editorContainer{
+@media (min-width:480px){{
+  .editorContainer{{
     grid-template-columns: 1fr 2fr;
     align-items: left;
     width: 100%%;
-  }
-  #imageContainer{
+  }}
+  #imageContainer{{
     order:2;
-  }
-}
-        .rect {
+  }}
+}}
+        .rect {{
             border: solid 2px red;
             pointer-events: none;
             display: none;
-        }
+        }}
 
         </style>
 <script type="text/javascript">
-(function () {
+(function () {{
     var image = document.getElementById('image');
     var clear_button = document.getElementById('clear');
     var prev_button = document.getElementById('previous');
     var next_button = document.getElementById('next');
     var skip_button = document.getElementById('skip');
 
-    var divs = {
+    var divs = {{
         rects_div: document.getElementById('rect'),
         bounds_div: document.getElementById('imageEditor')
-    };
+    }};
 
     var box = initBox();
     image.setAttribute('draggable', false);
@@ -287,45 +285,45 @@ input[type=range]:hover {
     var rect_count = 0;
     var rects = [];
 
-    var rect = {
+    var rect = {{
     x0: 0,
     y0: 0,
     x1: 0,
     y1: 0
-    };
-    var client_rect = {
+    }};
+    var client_rect = {{
     x0: 0,
     y0: 0,
     x1: 0,
     y1: 0
-    };
+    }};
 
-    function mousedown(e) {
+    function mousedown(e) {{
     grab = true;
     rect.x0 = e.offsetX;
     rect.y0 = e.offsetY;
     client_rect.x0 = e.clientX;
     client_rect.y0 = e.clientY;
-    }
+    }}
 
-    function mousemove(e) {
-    if (grab) {
+    function mousemove(e) {{
+    if (grab) {{
         rect.x1 = e.offsetX;
         rect.y1 = e.offsetY;
         client_rect.x1 = e.clientX;
         client_rect.y1 = e.clientY;
         showRect();
-        }
-    }
+        }}
+    }}
 
-    function mouseup(e) {
+    function mouseup(e) {{
         grab = false;
         rects.push(rect);
         rect_count++;
         box = initBox();
-    }
+    }}
 
-    function showRect() {
+    function showRect() {{
         box.rect.style.display = 'block';
         box.rect.style.position = 'absolute';
         box.rect.style.left = client_rect.x0 + 'px';
@@ -333,43 +331,43 @@ input[type=range]:hover {
         box.rect.style.width = (client_rect.x1 - client_rect.x0) + 'px';
         box.rect.style.height = (client_rect.y1 - client_rect.y0) + 'px';
         box.bounds.innerText = 'x: ' + rect.x0 + ', ' + rect.x1 + '\ny: ' + rect.y0 + ', ' + rect.y1;
-    }
+    }}
 
-     function initBox(){
-    curr_box = {
+     function initBox(){{
+    curr_box = {{
         rect: document.createElement("div"),
         bounds: document.createElement("label")
-    };
+    }};
 
     divs.rects_div.appendChild(curr_box.rect);
     curr_box.rect.classList.add("rect");
 
     divs.bounds_div.appendChild(curr_box.bounds);
     return curr_box;
-    }
+    }}
 
-    function clearAll(){
+    function clearAll(){{
         rects = [];
         rect_count = 0;
         divs.rects_div.innerHTML = "";
         divs.bounds_div.innerHTML = "";
         box = initBox();
-    }
+    }}
 
-        function previous(){
-         IPython.notebook.kernel.execute("foo=42");
-    }
+        function previous(){{
+         google.colab.kernel.invokeFunction('{previous}', [], {{}});
+    }}
 
 
-        function next(){
-      IPython.notebook.kernel.execute("self._next()");
-    }
+        function next(){{
+      google.colab.kernel.invokeFunction('{next}', "'''"   + JSON.stringify(rects) + "'''");
+    }}
 
-        function skip(){
-      IPython.notebook.kernel.execute("print('Hello from the js cell')");
-    }
+        function skip(){{
+      google.colab.kernel.invokeFunction('{skip}', [], {{}});
+    }}
 
-    })();
+    }})();
 
 
 
