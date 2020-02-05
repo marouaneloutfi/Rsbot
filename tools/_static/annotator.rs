@@ -376,13 +376,26 @@ input[type=range]:hover {{
 
 
         function next(){{
-            var buffer
+            var buffer = {
+                xmins : '[',
+                xmaxs : '[',
+                ymins : '[',
+                ymaxs : '[',
+            };
+
+
             rects.forEach(function(item, index, array){{
-                    xmins += item.x0 + ','
-
+                    buffer.xmins +=  item.x0 + ',';
+                    buffer.xmaxs += item.x1 + ',';
+                    buffer.ymins += item.y0 + ',';
+                    buffer.ymaxs += item.y1 + ',';
                 }});
+            buffer.xmins += ']';
+            buffer.xmaxs += ']';
+            buffer.ymins += ']';
+            buffer.ymaxs += ']';
 
-      google.colab.kernel.invokeFunction('{next}', '"""'+JSON.stringify(buffer) + '"""');
+      google.colab.kernel.invokeFunction('{next}','', '"""'+JSON.stringify(buffer) + '"""');
     }}
 
         function skip(){{
