@@ -376,12 +376,12 @@ input[type=range]:hover {{
 
 
         function next(){{
-            var buffer = {
+            var buffer = {{
                 xmins : '[',
                 xmaxs : '[',
                 ymins : '[',
                 ymaxs : '[',
-            };
+            }};
 
 
             rects.forEach(function(item, index, array){{
