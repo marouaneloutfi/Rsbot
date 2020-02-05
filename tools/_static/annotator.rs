@@ -382,7 +382,7 @@ input[type=range]:hover {{
 
             });
 
-      google.colab.kernel.invokeFunction('next', '"""'+JSON.stringify(buffer) + '"""');
+      google.colab.kernel.invokeFunction('{next}', '"""'+JSON.stringify(buffer) + '"""');
     }}
 
         function skip(){{
