@@ -377,10 +377,10 @@ input[type=range]:hover {{
 
         function next(){{
             var buffer
-            rects.forEach(function(item, index, array){
-               xmins += item.x0 +','
+            rects.forEach(function(item, index, array){{
+                    xmins += item.x0 + ','
 
-            });
+                }});
 
       google.colab.kernel.invokeFunction('{next}', '"""'+JSON.stringify(buffer) + '"""');
     }}
