@@ -48,11 +48,13 @@ class Annotator:
     def _previous(self):
         self.annotate(self.prev)
 
-    def _save(self, rects):
-        #  print(rects)
-        print("hello world")
-        # TFExample(self.im_buffer, xmins, xmaxs, ymins, ymaxs)
-        # self.writer.write(TFExample.tf_example)
+    def _save(self, xmins, xmaxs, ymins, ymaxs):
+        print(xmins)
+        example = iter(self.parser.take(self.sample_size)).__next__()
+        rgb = example[0][0].numpy()[:, :, 0:3]
+        rgb = np.interp(rgb, (rgb.min(), rgb.max()), (0, 255))
+        self.prev = rgb[..., ::-1].astype("uint8")
+        self.annotate(self.prev)
         self._next()
 
     @staticmethod
