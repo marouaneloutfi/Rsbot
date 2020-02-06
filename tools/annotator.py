@@ -38,7 +38,6 @@ class Annotator:
                                           previous=_previous, skip=_skip)))
 
     def _next(self):
-        print("hello world")
         example = iter(self.parser.take(self.sample_size)).__next__()
         rgb = example[0][0].numpy()[:, :, 0:3]
         rgb = np.interp(rgb, (rgb.min(), rgb.max()), (0, 255))
@@ -48,13 +47,10 @@ class Annotator:
     def _previous(self):
         self.annotate(self.prev)
 
-    def _save(self, a, b):
-        print(a, b)
-        example = iter(self.parser.take(self.sample_size)).__next__()
-        rgb = example[0][0].numpy()[:, :, 0:3]
-        rgb = np.interp(rgb, (rgb.min(), rgb.max()), (0, 255))
-        self.prev = rgb[..., ::-1].astype("uint8")
-        self.annotate(self.prev)
+    def _save(self, xmins, xmaxs, ymins, ymaxs):
+        print(xmins)
+        TFExample(self.im_buffer, xmins, xmaxs, ymins, ymaxs)
+        self.writer.write(TFExample.tf_example)
         self._next()
 
     @staticmethod
