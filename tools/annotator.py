@@ -128,13 +128,13 @@ class PngAnnotator:
                                           previous=_previous, skip=_skip, done=_done)))
 
     def _next(self):
-        self.im_buffer = Annotator.parse_image(self.files[self.i])
+        self.im_buffer = self..parse_image(self.files[self.i])
         self.i += 1
         self.annotate()
 
     def _previous(self):
         self.i -= 1
-        self.im_buffer = Annotator.parse_image(self.files[self.i])
+        self.im_buffer = self.parse_image(self.files[self.i])
         self.annotate()
 
     def _save(self, xmins, xmaxs, ymins, ymaxs):
@@ -166,10 +166,8 @@ class PngAnnotator:
         output.register_callback(callback_id, callback)
         return callback_id
 
-
-    @staticmethod
-    def parse_image(image):
-        img = Image.fromarray(image)
+    def parse_image(self, image):
+        img = Image.open(self.png_dir+image)
         buffered = BytesIO()
         img.save(buffered, format="png")
         return buffered.getvalue()
