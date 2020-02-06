@@ -120,7 +120,6 @@ class PngAnnotator:
 
     def annotate(self):
         clear_output()
-        print(self.files[self.i - 1])
         _next = Annotator.register_button(self._save)
         _previous = Annotator.register_button(self._previous)
         _skip = Annotator.register_button(self._next)
