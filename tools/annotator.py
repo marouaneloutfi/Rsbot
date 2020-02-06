@@ -128,7 +128,7 @@ class PngAnnotator:
                                           previous=_previous, skip=_skip, done=_done)))
 
     def _next(self):
-        self.im_buffer = self..parse_image(self.files[self.i])
+        self.im_buffer = self.parse_image(self.files[self.i])
         self.i += 1
         self.annotate()
 
