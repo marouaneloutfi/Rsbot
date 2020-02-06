@@ -32,10 +32,11 @@ class Annotator:
         _next = Annotator.register_button(self._save)
         _previous = Annotator.register_button(self._previous)
         _skip = Annotator.register_button(self._next)
+        _done = Annotator.register_button(self.done)
         self.im_buffer = Annotator.parse_image(image)
         im_base64 = b64encode(self.im_buffer).decode('utf-8')
         display(HTML(self.template.format(image=im_base64, next=_next,
-                                          previous=_previous, skip=_skip)))
+                                          previous=_previous, skip=_skip, done=_done)))
 
     def _next(self):
         example = iter(self.parser.take(self.sample_size)).__next__()
@@ -52,6 +53,9 @@ class Annotator:
         example = TFExample(self.im_buffer, xmins, xmaxs, ymins, ymaxs)
         self.writer.write(example.tf_example.SerializeToString())
         self._next()
+
+    def _done(self):
+        self.writer.close()
 
     @staticmethod
     def register_button(callback):
