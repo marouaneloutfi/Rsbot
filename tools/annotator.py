@@ -48,7 +48,7 @@ class Annotator:
     def _previous(self):
         self.annotate(self.prev)
 
-    def _save(self, xmins, xmaxs, ymins, ymaxs):
+    def _save(self, xmins):
         print(xmins)
         example = iter(self.parser.take(self.sample_size)).__next__()
         rgb = example[0][0].numpy()[:, :, 0:3]
