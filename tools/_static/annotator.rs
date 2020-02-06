@@ -255,6 +255,7 @@ input[type=range]:hover {{
         </style>
 <script type="text/javascript">
 (function () {{
+    IPython.OutputArea.auto_scroll_threshold = 9999;
     var image = document.getElementById('image');
     var clear_button = document.getElementById('clear');
     var prev_button = document.getElementById('{previous}');
