@@ -107,7 +107,7 @@ class PngAnnotator:
     _template_uri = join(Path(__file__).parent.absolute(), "_static", "annotator.rs")
 
     def __init__(self, png_dir, sample_size, out_file):
-        self.files = listdir(png_dir)
+        self.files = sorted(listdir(png_dir))
         self.png_dir = png_dir
         self.out_file = out_file
         self.writer = tf.io.TFRecordWriter(out_file)
@@ -123,7 +123,6 @@ class PngAnnotator:
         _previous = Annotator.register_button(self._previous)
         _skip = Annotator.register_button(self._next)
         _done = Annotator.register_button(self._done)
-
         im_base64 = b64encode(self.im_buffer).decode('utf-8')
         display(HTML(self.template.format(image=im_base64, next=_next,
                                           previous=_previous, skip=_skip, done=_done)))

@@ -346,10 +346,10 @@ input[type=range]:hover {{
     }}
 
     function register(rec){{
-        buffer.xmins.push(rec.x0 / 512);
-        buffer.xmaxs.push(rec.x1 / 512);
-        buffer.ymins.push(rec.y0 / 512);
-        buffer.ymaxs.push(rec.y1 / 512);
+        buffer.xmins.push(rec.x0 / 1114);
+        buffer.xmaxs.push(rec.x1 / 1114);
+        buffer.ymins.push(rec.y0 / 1114);
+        buffer.ymaxs.push(rec.y1 / 1114);
     }}
 
      function initBox(){{
