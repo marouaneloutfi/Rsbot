@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from tools.experiment import RsModel
+from models.experiment import RsModel
 
 app = Flask(__name__)
 

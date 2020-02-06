@@ -62,7 +62,6 @@ class RsModel(Model):
         sql = '''SELECT * FROM models ORDER BY date_modified LIMIT 100'''
         self.ds.c.execute(sql)
         return self.ds.c.fetchall()
-
     def load_by_name(self, name):
         sql = '''SELECT * FROM models where name=? '''
         self.ds.c.execute(sql, name)

@@ -2,7 +2,7 @@ from tensorflow.keras.layers import Input, BatchNormalization, Activation, Dropo
 from tensorflow.keras.layers import Conv3D, Conv3DTranspose, Conv2D, Reshape
 from tensorflow.keras.layers import MaxPooling3D
 from tensorflow.keras.layers import concatenate
-from tools.experiment import RsModel
+from .experiment import RsModel
 
 
 class Unet3D:
