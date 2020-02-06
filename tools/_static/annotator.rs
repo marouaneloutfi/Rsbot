@@ -1,9 +1,3 @@
-<h1>Annotate Image</h1>
-
-<!--Form for collecting image URL -->
-
-<hr color="grey">
-
 <section class="editorContainer">
 <!--Controls for CSS filters via range input-->
 <div class="sliders">
