@@ -159,7 +159,7 @@ class PngAnnotator:
     def _done_all(self):
         self.writer.close()
         clear_output()
-        print("Everything is Annotated")
+        print(self.count, " image Annotated")
         print("Annotations saved at: ", self.out_file)
 
 
