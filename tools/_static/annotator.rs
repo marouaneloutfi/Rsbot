@@ -388,7 +388,7 @@ input[type=range]:hover {{
     }}
 
     function done() {{
-        google.colab.kernel.invokeFunction('{done}');
+        google.colab.kernel.invokeFunction('{done}', [buffer.xmins, buffer.xmaxs, buffer.ymins, buffer.ymaxs]);
     }}
 
     }})();

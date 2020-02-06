@@ -55,7 +55,10 @@ class Annotator:
         self.writer.write(example.tf_example.SerializeToString())
         self._next()
 
-    def _done(self):
+    def _done(self, xmins, xmaxs, ymins, ymaxs):
+        print( xmins, xmaxs, ymins, ymaxs)
+        example = TFExample(self.im_buffer, xmins, xmaxs, ymins, ymaxs)
+        self.writer.write(example.tf_example.SerializeToString())
         self.writer.close()
         clear_output()
         print("Annotations saved at: ", self.out_file)
