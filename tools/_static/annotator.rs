@@ -23,6 +23,7 @@
     <button id="{next}" class="button">  Next </button>
     <button id="{skip}" class="button">  Skip </button>
     <button id="clear" class="button">  Reset </button>
+    <button id="{done}" class="button">  Done </button>
     <div id="rect"></div>
 </div>
  </section>
@@ -265,6 +266,7 @@ input[type=range]:hover {{
     var prev_button = document.getElementById('{previous}');
     var next_button = document.getElementById('{next}');
     var skip_button = document.getElementById('{skip}');
+    var done_button = document.getElementById('{done}');
 
     var divs = {{
         rects_div: document.getElementById('rect'),
@@ -280,6 +282,7 @@ input[type=range]:hover {{
     prev_button.addEventListener('click', previous);
     next_button.addEventListener('click', next);
     skip_button.addEventListener('click', skip);
+    done_button.addEventListener('click', done);
 
     var grab = false;
     var rect_count = 0;
@@ -343,10 +346,10 @@ input[type=range]:hover {{
     }}
 
     function register(rec){{
-        buffer.xmins.push(rec.x0);
-        buffer.xmaxs.push(rec.x1);
-        buffer.ymins.push(rec.y0);
-        buffer.ymaxs.push(rec.y1);
+        buffer.xmins.push(rec.x0 / 512);
+        buffer.xmaxs.push(rec.x1 / 512);
+        buffer.ymins.push(rec.y0 / 512);
+        buffer.ymaxs.push(rec.y1 / 512);
     }}
 
      function initBox(){{
@@ -382,6 +385,10 @@ input[type=range]:hover {{
 
         function skip(){{
       google.colab.kernel.invokeFunction('{skip}');
+    }}
+
+    function done() {{
+        google.colab.kernel.invokeFunction('{done}');
     }}
 
     }})();

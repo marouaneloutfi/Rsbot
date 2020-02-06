@@ -21,21 +21,25 @@ class Annotator:
     def __init__(self, folder, parser, sample_size, out_file):
         self.folder = folder
         self.parser = parser
-        self.writer = tf.io.TFRecordWriter(out_file)
         self.sample_size = sample_size
         self.template = Path(self._template_uri).read_text()
         self.prev = None
         self.im_buffer = None
+        flags = tf.app.flags
+        flags.DEFINE_string('output_path', '', out_file)
+        self.FLAGS = flags.FLAGS
+        self.writer = tf.python_io.TFRecordWriter(self.FLAGS.output_path)
 
     def annotate(self, image):
         clear_output()
         _next = Annotator.register_button(self._save)
         _previous = Annotator.register_button(self._previous)
         _skip = Annotator.register_button(self._next)
+        _done = Annotator.register_button(self._done)
         self.im_buffer = Annotator.parse_image(image)
         im_base64 = b64encode(self.im_buffer).decode('utf-8')
         display(HTML(self.template.format(image=im_base64, next=_next,
-                                          previous=_previous, skip=_skip)))
+                                          previous=_previous, skip=_skip, done=_done)))
 
     def _next(self):
         example = iter(self.parser.take(self.sample_size)).__next__()
@@ -50,12 +54,11 @@ class Annotator:
     def _save(self, xmins, xmaxs, ymins, ymaxs):
         print(xmins, xmaxs, ymins, ymaxs)
         example = TFExample(self.im_buffer, xmins, xmaxs, ymins, ymaxs)
-        self.writer.write(example.tf_example)
-        example = iter(self.parser.take(self.sample_size)).__next__()
-        rgb = example[0][0].numpy()[:, :, 0:3]
-        rgb = np.interp(rgb, (rgb.min(), rgb.max()), (0, 255))
-        self.prev = rgb[..., ::-1].astype("uint8")
-        self.annotate(self.prev)
+        self.writer.write(example.tf_example.SerializeToString())
+        self._next()
+
+    def _done(self):
+        self.writer.close()
 
     @staticmethod
     def register_button(callback):
@@ -91,7 +94,7 @@ class TFExample:
             'image/object/bbox/xmax': dataset_util.float_list_feature(xmaxs),
             'image/object/bbox/ymin': dataset_util.float_list_feature(ymins),
             'image/object/bbox/ymax': dataset_util.float_list_feature(ymaxs),
-            # 'image/object/class/text': dataset_util.bytes_list_feature(classes_text),
+            'image/object/class/text': dataset_util.bytes_list_feature(self._classes_text),
             'image/object/class/label': dataset_util.int64_list_feature(self._classes),
             }))
 
