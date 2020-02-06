@@ -257,6 +257,11 @@ input[type=range]:hover {{
         </style>
 <script type="text/javascript">
 (function () {{
+    google.colab.output.setIframeHeight(0, true, {{
+  maxHeight: 5000,
+}});
+
+
     var image = document.getElementById('image');
     var clear_button = document.getElementById('clear');
     var prev_button = document.getElementById('{previous}');
