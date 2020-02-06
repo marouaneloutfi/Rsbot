@@ -24,6 +24,8 @@
 
 
 <style>
+    div.output_scroll {{ height: 90em; }}
+
     /* General styles for the page */
     .button {{
   background-color: gray; /* Green */
