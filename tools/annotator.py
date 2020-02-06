@@ -106,8 +106,7 @@ class PngAnnotator:
 
     _template_uri = join(Path(__file__).parent.absolute(), "_static", "annotator.rs")
 
-    def __init__(self, folder, png_dir, sample_size, out_file):
-        self.folder = folder
+    def __init__(self, png_dir, sample_size, out_file):
         self.files = listdir(png_dir)
         self.out_file = out_file
         self.writer = tf.io.TFRecordWriter(out_file)
