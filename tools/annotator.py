@@ -48,8 +48,9 @@ class Annotator:
         self.annotate(self.prev)
 
     def _save(self, xmins, xmaxs, ymins, ymaxs):
-        TFExample(self.im_buffer, xmins, xmaxs, ymins, ymaxs)
-        self.writer.write(TFExample.tf_example)
+        print(xmins, xmaxs, ymins, ymaxs)
+        example = TFExample(self.im_buffer, xmins, xmaxs, ymins, ymaxs)
+        self.writer.write(example.tf_example)
         example = iter(self.parser.take(self.sample_size)).__next__()
         rgb = example[0][0].numpy()[:, :, 0:3]
         rgb = np.interp(rgb, (rgb.min(), rgb.max()), (0, 255))
