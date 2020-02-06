@@ -21,6 +21,7 @@ class Annotator:
     def __init__(self, folder, parser, sample_size, out_file):
         self.folder = folder
         self.parser = parser
+        self.out_file = out_file
         self.writer = tf.io.TFRecordWriter(out_file)
         self.sample_size = sample_size
         self.template = Path(self._template_uri).read_text()
@@ -56,6 +57,9 @@ class Annotator:
 
     def _done(self):
         self.writer.close()
+        clear_output()
+        print("Annotations saved at: ", self.out_file)
+
 
     @staticmethod
     def register_button(callback):
