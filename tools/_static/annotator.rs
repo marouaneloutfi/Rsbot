@@ -395,7 +395,7 @@ input[type=range]:hover {{
             buffer.ymins += ']';
             buffer.ymaxs += ']';
 
-      google.colab.kernel.invokeFunction('{next}','"""{{12, 14,15,16}} """');
+      google.colab.kernel.invokeFunction('{next}','{{12, 14,15,16}}');
     }}
 
         function skip(){{
