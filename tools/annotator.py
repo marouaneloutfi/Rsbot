@@ -139,17 +139,25 @@ class PngAnnotator:
         self.annotate()
 
     def _save(self, xmins, xmaxs, ymins, ymaxs):
-        print( xmins, xmaxs, ymins, ymaxs)
+        print(xmins, xmaxs, ymins, ymaxs)
         example = TFExample(self.im_buffer, xmins, xmaxs, ymins, ymaxs)
         self.writer.write(example.tf_example.SerializeToString())
+        if self.i > self.sample_size - 1:
+            self._done_all()
         self._next()
 
     def _done(self, xmins, xmaxs, ymins, ymaxs):
-        print( xmins, xmaxs, ymins, ymaxs)
+        print(xmins, xmaxs, ymins, ymaxs)
         example = TFExample(self.im_buffer, xmins, xmaxs, ymins, ymaxs)
         self.writer.write(example.tf_example.SerializeToString())
         self.writer.close()
         clear_output()
+        print("Annotations saved at: ", self.out_file)
+
+    def _done_all(self):
+        self.writer.close()
+        clear_output()
+        print("Everything is Annotated")
         print("Annotations saved at: ", self.out_file)
 
 
