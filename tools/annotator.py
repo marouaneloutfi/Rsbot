@@ -108,6 +108,7 @@ class PngAnnotator:
 
     def __init__(self, png_dir, sample_size, out_file):
         self.files = listdir(png_dir)
+        self.png_dir = png_dir
         self.out_file = out_file
         self.writer = tf.io.TFRecordWriter(out_file)
         self.sample_size = sample_size
