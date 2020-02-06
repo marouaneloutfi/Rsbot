@@ -116,6 +116,7 @@ class PngAnnotator:
         self.prev = None
         self.im_buffer = None
         self.i = 0
+        self.count = 0
 
     def annotate(self):
         clear_output()
@@ -141,6 +142,7 @@ class PngAnnotator:
         print(xmins, xmaxs, ymins, ymaxs)
         example = TFExample(self.im_buffer, xmins, xmaxs, ymins, ymaxs)
         self.writer.write(example.tf_example.SerializeToString())
+        self.count += 1
         if self.i > self.sample_size - 1:
             self._done_all()
         self._next()
@@ -148,6 +150,7 @@ class PngAnnotator:
     def _done(self, xmins, xmaxs, ymins, ymaxs):
         print(xmins, xmaxs, ymins, ymaxs)
         example = TFExample(self.im_buffer, xmins, xmaxs, ymins, ymaxs)
+        self.count += 1
         self.writer.write(example.tf_example.SerializeToString())
         self.writer.close()
         clear_output()
