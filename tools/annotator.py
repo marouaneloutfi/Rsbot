@@ -97,7 +97,7 @@ class TFExample:
             'image/object/bbox/xmax': dataset_util.float_list_feature(xmaxs),
             'image/object/bbox/ymin': dataset_util.float_list_feature(ymins),
             'image/object/bbox/ymax': dataset_util.float_list_feature(ymaxs),
-            'image/object/class/text': dataset_util.bytes_list_feature(_classes_text),
+            # 'image/object/class/text': dataset_util.bytes_list_feature(_classes_text),
             'image/object/class/label': dataset_util.int64_list_feature(_classes),
             }))
 
@@ -139,7 +139,6 @@ class PngAnnotator:
         self.annotate()
 
     def _save(self, xmins, xmaxs, ymins, ymaxs):
-        print(xmins, xmaxs, ymins, ymaxs)
         example = TFExample(self.im_buffer, xmins, xmaxs, ymins, ymaxs)
         self.writer.write(example.tf_example.SerializeToString())
         self.count += 1
@@ -148,12 +147,12 @@ class PngAnnotator:
         self._next()
 
     def _done(self, xmins, xmaxs, ymins, ymaxs):
-        print(xmins, xmaxs, ymins, ymaxs)
         example = TFExample(self.im_buffer, xmins, xmaxs, ymins, ymaxs)
         self.count += 1
         self.writer.write(example.tf_example.SerializeToString())
         self.writer.close()
         clear_output()
+        print(self.count, " image Annotated")
         print("Annotations saved at: ", self.out_file)
 
     def _done_all(self):
@@ -161,7 +160,6 @@ class PngAnnotator:
         clear_output()
         print(self.count, " image Annotated")
         print("Annotations saved at: ", self.out_file)
-
 
     @staticmethod
     def register_button(callback):
