@@ -86,8 +86,8 @@ class TFExample:
     _im_format = b'png'
 
     def __init__(self, im_buffer, xmins, xmaxs, ymins, ymaxs, width=1114, height=1114):
-        _classes = [1 for i in range(len(xmins))]
-        _classes_text = ["wind" for i in range(len(xmins))]
+        _classes = [1]*len(xmins)
+        _classes_text = [b'wind']*len(xmins)
         self.tf_example = tf.train.Example(features=tf.train.Features(feature={
             'image/height': dataset_util.int64_feature(height),
             'image/width': dataset_util.int64_feature(width),
@@ -97,7 +97,7 @@ class TFExample:
             'image/object/bbox/xmax': dataset_util.float_list_feature(xmaxs),
             'image/object/bbox/ymin': dataset_util.float_list_feature(ymins),
             'image/object/bbox/ymax': dataset_util.float_list_feature(ymaxs),
-            # 'image/object/class/text': dataset_util.bytes_list_feature(_classes_text),
+            'image/object/class/text': dataset_util.bytes_list_feature(_classes_text),
             'image/object/class/label': dataset_util.int64_list_feature(_classes),
             }))
 
