@@ -1,12 +1,5 @@
 <section class="editorContainer">
-<!--Controls for CSS filters via range input-->
-<div class="sliders">
-  <div id="imageEditor">
-
-  </div>
-</div>
-
-<!--container where image will be loaded-->
+    <!--container where image will be loaded-->
 <!--<div id="imageContainer" class="center">
   <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/stadium.jpg">
 </div>-->
@@ -271,7 +264,6 @@ input[type=range]:hover {{
 
     var divs = {{
         rects_div: document.getElementById('rect'),
-        bounds_div: document.getElementById('imageEditor')
     }};
 
     var box = initBox();
@@ -343,7 +335,7 @@ input[type=range]:hover {{
         box.rect.style.top = client_rect.y0 + 'px';
         box.rect.style.width = (client_rect.x1 - client_rect.x0) + 'px';
         box.rect.style.height = (client_rect.y1 - client_rect.y0) + 'px';
-        box.bounds.innerText = 'x: ' + rect.x0 + ', ' + rect.x1 + '\ny: ' + rect.y0 + ', ' + rect.y1;
+        //box.bounds.innerText = 'x: ' + rect.x0 + ', ' + rect.x1 + '\ny: ' + rect.y0 + ', ' + rect.y1;
     }}
 
     function register(rec){{
@@ -362,7 +354,7 @@ input[type=range]:hover {{
     divs.rects_div.appendChild(curr_box.rect);
     curr_box.rect.classList.add("rect");
 
-    divs.bounds_div.appendChild(curr_box.bounds);
+    //divs.bounds_div.appendChild(curr_box.bounds);
     return curr_box;
     }}
 
