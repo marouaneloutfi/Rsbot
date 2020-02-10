@@ -143,7 +143,8 @@ class PngAnnotator:
         example = TFExample(self.im_buffer, xmins, xmaxs, ymins, ymaxs)
         self.writer.write(example.tf_example.SerializeToString())
         for xmin, xmax, ymin, ymax in zip(xmins, xmaxs, ymins, ymaxs):
-            self.f.write(self.files[self.i - 1] + ',' + xmin + ',' + ymin + ',' + xmax + ',' + ymax + ',wind\n')
+            self.f.write(self.files[self.i - 1] + ',' + str(int(xmin * 1114)) + ',' + str(int(ymin * 1114)) + ',' + str(
+                int(xmax * 1114)) + ',' + str(int(ymax * 1114)) + ',wind\n')
         self.count += 1
         if self.i > self.sample_size - 1:
             self._done_all()
@@ -154,7 +155,7 @@ class PngAnnotator:
         self.count += 1
         self.writer.write(example.tf_example.SerializeToString())
         for xmin, xmax, ymin, ymax in zip(xmins, xmaxs, ymins, ymaxs):
-            self.f.write(self.files[self.i - 1] + ',' + xmin + ',' + ymin + ',' + xmax + ',' + ymax + ',wind\n')
+            self.f.write(self.files[self.i - 1] + ',' + str(int(xmin*1114)) + ',' + str(int(ymin*1114)) + ',' + str(int(xmax*1114)) + ',' + str(int(ymax*1114)) + ',wind\n')
         self.writer.close()
         self.f.close()
         clear_output()
