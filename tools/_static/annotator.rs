@@ -335,8 +335,8 @@ input[type=range]:hover {{
         box.rect.style.top = client_rect.y0 + 'px';
         box.rect.style.width = (client_rect.x1 - client_rect.x0) + 'px';
         box.rect.style.height = (client_rect.y1 - client_rect.y0) + 'px';
-        //box.bounds.innerText = 'x: ' + rect.x0 + ', ' + rect.x1 + '\ny: ' + rect.y0 + ', ' + rect.y1;
-        console.log('x: ' + rect.x0 + ', ' + rect.x1 + '\ny: ' + rect.y0 + ', ' + rect.y1);
+        // box.bounds.innerText = 'x: ' + rect.x0 + ', ' + rect.x1 + '\ny: ' + rect.y0 + ', ' + rect.y1;
+        //console.log('x: ' + rect.x0 + ', ' + rect.x1 + '\ny: ' + rect.y0 + ', ' + rect.y1);
     }}
 
     function register(rec){{

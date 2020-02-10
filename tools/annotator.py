@@ -57,7 +57,7 @@ class Annotator:
         self._next()
 
     def _done(self, xmins, xmaxs, ymins, ymaxs):
-        print( xmins, xmaxs, ymins, ymaxs)
+        print(xmins, xmaxs, ymins, ymaxs)
         example = TFExample(self.im_buffer, xmins, xmaxs, ymins, ymaxs)
         self.writer.write(example.tf_example.SerializeToString())
         self.writer.close()
@@ -106,7 +106,7 @@ class PngAnnotator:
 
     _template_uri = join(Path(__file__).parent.absolute(), "_static", "annotator.rs")
 
-    def __init__(self, png_dir, sample_size, out_file):
+    def __init__(self, png_dir, sample_size, out_file,text_file):
         self.files = listdir(png_dir)
         self.png_dir = png_dir
         self.out_file = out_file
@@ -117,6 +117,7 @@ class PngAnnotator:
         self.im_buffer = None
         self.i = 0
         self.count = 0
+        self.f = open(text_file, 'w')
 
     def annotate(self):
         clear_output()
@@ -141,6 +142,8 @@ class PngAnnotator:
     def _save(self, xmins, xmaxs, ymins, ymaxs):
         example = TFExample(self.im_buffer, xmins, xmaxs, ymins, ymaxs)
         self.writer.write(example.tf_example.SerializeToString())
+        for xmin, xmax, ymin, ymax in zip(xmins, xmaxs, ymins, ymaxs):
+            self.f.write(self.files[self.i - 1] + ',' + xmin + ',' + ymin + ',' + xmax + ',' + ymax + ',wind\n')
         self.count += 1
         if self.i > self.sample_size - 1:
             self._done_all()
@@ -150,13 +153,17 @@ class PngAnnotator:
         example = TFExample(self.im_buffer, xmins, xmaxs, ymins, ymaxs)
         self.count += 1
         self.writer.write(example.tf_example.SerializeToString())
+        for xmin, xmax, ymin, ymax in zip(xmins, xmaxs, ymins, ymaxs):
+            self.f.write(self.files[self.i - 1] + ',' + xmin + ',' + ymin + ',' + xmax + ',' + ymax + ',wind\n')
         self.writer.close()
+        self.f.close()
         clear_output()
         print(self.count, " image Annotated")
         print("Annotations saved at: ", self.out_file)
 
     def _done_all(self):
         self.writer.close()
+        self.f.close()
         clear_output()
         print(self.count, " image Annotated")
         print("Annotations saved at: ", self.out_file)
